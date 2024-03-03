@@ -108,12 +108,14 @@ nav{
 .button1:hover{
     border:1px solid black;
     background: #eab9e5;
+    color:black;
     transition: 1s;
 }
 
 .button2:hover{
     border:1px solid black;
     background: #eab9e5;
+    color: black;
     transition: 1s;
 }
 
@@ -126,6 +128,28 @@ nav .fa-fa-rocket{
     display:none;
 }
 
+.settingUp{
+    text-align: center;
+}
+
+.button3{
+    display:inline-block;
+    text-decoration: none;
+    border:1px solid black;
+    padding:12px 34px;
+    font-size: 13px;
+    color:black;
+    position: relative;
+    cursor:pointer;
+    margin: 50px 0 40px;
+    padding-left: 60px;
+}
+
+.button3:hover{
+    border:1px solid black;
+    background: #eab9e5;
+    transition: 1s;
+}
 
 
 @media(max-width:700px){
@@ -248,4 +272,54 @@ header h1{
     color:white;
 }
 
+/*CSS Styles for registration page*/
+header.head{
+    min-height: 120vh;
+    width:100%; 
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+    position: relative;
+    
+}
 
+header.head h1{
+    background-color: #878fd7;
+    color:white;
+}
+
+.row1{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-col1{
+    flex-basis: 31%;
+    background:#eab9e5;
+    border-radius: 10px;
+    margin-bottom:5%;
+    padding:20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+.form1{
+    width:250px;
+    height:380px;
+    background: #878fd7;
+    position: absolute;
+    top:-20px;
+    left:700px;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form1 h2{
+    width:220px;
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    color:white;
+    font-size: 22px;
+    background-color: #eab9e5;
+}
