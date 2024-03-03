@@ -1,13 +1,9 @@
 <script>
+    // JavaScript code for sticky navigation
+    window.onscroll = () =&gt; stickyNav();
 
-//javascript code for toggle menu
-    var navLinks = document.getElementById("navLinks");
+    const navbar = document.querySelector(".sticky-nav");
+    const sticky = navbar.offsetTop;
 
-    function showMenu() {
-        navLinks.style.right = "0"
-    }
-
-    function hideMenu(){
-        navLinks.style.right = "-200px"
-    }
+    const stickyNav = () =&gt; window.pageYOffset &gt;= sticky ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
 </script>

@@ -12,33 +12,29 @@
 </head>
 
 <body>
-    <section class = "header">
-        <nav>
-            <div class = "nav-links" id = "navLinks">
-                <i class="fa-fa-times" onclick="hideMenu()" ></i>
-
-                <ul>
-                    <li><a href = "launcherone_home.html">HOME</a></li>
-                    <li><a href = "">ABOUT US</a></li>
-                    <li><a href = "">CONTACT</a></li>
-                    <li><a href = "launcherone_settings.html">SETTINGS</a></li>
-                </ul>
-            </div>
-            <i class="fa-fa-rocket" onclick="showMenu()" ></i>
-        </nav>
-
-        <div class = "text-box">
-            <img src = "starfighter1.png" alt = "">
-            <h1> LAUNCHER-ONE</h1>
-            <h2><p>A roommate match-making service for TRU students</p></h2>
-            <a href = "launcherone_registration.html" class = "button1"> Sign Up</a>
-            <a href = "launcherone_registration.html" class = "button2"> Log In</a>
+    <nav class="sticky-nav" id="navbar">
+        <div class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="launcherone_home.html">HOME</a></li>
+                <li><a href="#about_section">ABOUT US</a></li>
+                <li><a href="#getstarted_section">GET STARTED</a></li>
+                <li><a href="#contact_section">CONTACT</a></li>
+            </ul>
         </div>
-        
+    </nav>
+
+    <section class="header" id="home">
+        <div class="text-box">
+            <img src="starfighter1.png" alt="">
+            <h1>LAUNCHER-ONE</h1>
+            <h2><p>A roommate match-making service for TRU students</p></h2>
+            <a href="launcherone_registration.html" class="button1">Sign Up</a>
+            <a href="launcherone_registration.html" class="button2">Log In</a>
+        </div>
     </section>
 
-    <!-- Description of the website-->
-    <section class = "body1">
+    <!-- Description of the website / About Us Section-->
+    <section class = "body1" id="about_section">
         <h1>Welcome to the LauncherOne website</h1>
         <p>Lorem ipsum dat dat dat dat dat dat dat. blah blah blah blah blah</p>
 
@@ -70,13 +66,20 @@
         </div>
     </section>
 
-    <section class = "settingUp">
-        <a href = "launcherone_registration.html" class = "button3"> Get Started With Us</a>
+    <section class = "settingUp" id="getstarted_section">
+        <a href = "launcherone_registration.html" class = "button3">Get Started With Us</a>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact" id="contact_section">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Feel free to reach out to us for any inquiries or assistance.</p>
+            <p>Address: 805 TRU Way, Kamloops, BC V2C 0C8 Canada</p>
+            <p>Email: launcherone.info@gmail.com</p>
+            <p>Phone: 250-828-5000</p>
+        </div>
     </section>
 
 </body>
-
-
-
-
 </html>
