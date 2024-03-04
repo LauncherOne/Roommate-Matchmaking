@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name = "viewport" content="with = device-width, initial-scale = 1.0">
+    <title>Roommate Match-Making Website</title>
+    <link rel = "stylesheet" href = "launcherone.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <script src="launcherone.js"></script>
+    </head>
+
+    <body>
+        <header class="head">
+            <h1><img src = "rocket_launch_FILL0_wght400_GRAD0_opsz48.png" alt = "">LAUNCHER-ONE</h1>
+        </header>
+
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-header">
+                    <div class="left-column">
+                        <!-- Profile picture -->
+                        <div class="profile-picture">
+                            <img id="profile-image-preview" src="default_profile_pic.png" alt="Profile Picture" onclick="document.getElementById('profile-image-upload').click()">
+                            <input type="file" id="profile-image-upload" accept="image/*" onchange="previewProfilePicture(event)" style="display: none;">
+                        </div>
+                        <!-- Name -->
+                        <h2>Emily Nguyen</h2>
+                        <!-- Bio -->
+                        <p class="bio">2nd Year TRU Student. Looking for a female roommate.</p>
+                        <!-- Edit profile button -->
+                        <input type="button" class="edit-profile-btn" onclick="editProfile()" value="Edit Profile"></input>
+                    </div>
+                    <div class="right-column">
+                        <!-- Links/buttons -->
+                        <div class="profile-links">
+                            <ul>
+                                <li><button class="profile-btn" onclick="">See Matches</button></li>
+                                <li><button class="profile-btn" onclick="">Your Listings</button></li>
+                            </ul>
+                        </div>
+                        <!-- Preferences input fields -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Name:</span>
+                            <span class="profile-info-value">Emily Nguyen</span>
+                            <input type="text" class="profile-input" id="name" placeholder="Emily Nguyen">
+                        </div>
+                        <!-- Bio -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Bio:</span>
+                            <span class="profile-info-value">2nd Year TRU Student. Looking for a female roommate.</span>
+                            <input type="text" class="profile-input" id="bio" placeholder="2nd Year TRU Student. Looking for a female roommate.">
+                        </div>
+                        <!-- Age -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Age:</span>
+                            <span class="profile-info-value">20</span>
+                            <input type="number" class="profile-input" id="age" min="18" max="99">
+                        </div>
+                        <!-- Year in University -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Year in University:</span>
+                            <span class="profile-info-value">2nd Year</span>
+                            <select class="profile-input" id="university-year">
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                                <option value="5">5th Year</option>
+                            </select>
+                        </div>
+                        <!-- Gender -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Gender:</span>
+                            <span class="profile-info-value">Female</span>
+                            <select class="profile-input" id="gender">
+                                <option value="male">Female</option>
+                                <option value="female">Male</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <!-- Roommate Preference -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Roommate Preference:</span>
+                            <span class="profile-info-value">Female</span>
+                            <select class="profile-input" id="roommate-preference">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <!-- Preferred Location -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Preferred Location:</span>
+                            <span class="profile-info-value">Summit Drive</span>
+                            <input type="text" class="profile-input" id="location" placeholder="Summit Drive">
+                        </div>
+                        <!-- Pet-Friendly Accommodation -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Pet-Friendly Accommodation:</span>
+                            <span class="profile-info-value">Yes</span>
+                            <select class="profile-input" id="pet-friendly">
+                                <option value="any">Any</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <!-- Type of Accommodation -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Type of Accommodation:</span>
+                            <span class="profile-info-value">2-Bedroom</span>
+                            <input type="text" class="profile-input" id="accommodation-type" placeholder="2-Bedroom">
+                        </div>
+                        <!-- Student Status -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Student Status:</span>
+                            <span class="profile-info-value">Undergraduate</span>
+                            <select class="profile-input" id="student-status">
+                                <option value="undergrad">Undergraduate</option>
+                                <option value="graduate">Graduate</option>
+                            </select>
+                        </div>
+                        <!-- Budget Range -->
+                        <div class="profile-info-container">
+                            <span class="profile-info-label">Budget Range:</span>
+                            <span class="profile-info-value">0 - 1500</span>
+                            <div class="budget-inputs">
+                                <input type="number" class="profile-input" id="minBudget" name="minBudget" min="0" max="1500" step="100" placeholder="Minimum">
+                                <input type="number" class="profile-input" id="maxBudget" name="maxBudget" min="0" max="1500" step="100" placeholder="Maximum">
+                            </div>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- This page is incomplete, still need to add save functionaility to save the inputs. 
+            Edit profile stext should be changed to save when toggled but not working -->
+    </body>
+</html>
