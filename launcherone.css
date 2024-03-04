@@ -345,10 +345,10 @@ header.head h1{
 .form1{
     width:250px;
     height:380px;
-    background: #878fd7;
     position: absolute;
-    top:-20px;
-    left:700px;
+    top:120px;
+    left:150px;
+    border:2px solid black;
     border-radius: 10px;
     padding: 25px;
 }
@@ -357,7 +357,163 @@ header.head h1{
     width:220px;
     font-family: 'Poppins',sans-serif;
     text-align: center;
-    color:white;
     font-size: 22px;
     background-color: #eab9e5;
+    color:black;
+    border-radius: 10px;
+    margin: 2px;
+    padding:8px;
 }
+
+.form1 input{
+    width:240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #eab9e5;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: black;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form1 input:focus{
+    outline:none;
+
+}
+
+::placeholder{
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn1{
+    width:180px;
+    height:40px;
+    background: #878fd7;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    margin-top: 30px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-bottom: 40px;
+    font-size:18px;
+    border-radius: 10px;
+}
+
+.btn1 a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn1:hover{
+    background: #eab9e5;
+    color:black;
+}
+
+
+
+.form2{
+    width:250px;
+    height:380px;
+    position: absolute;
+    top:120px;
+    left:800px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form2 h2{
+    width:220px;
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+    color:black;
+    font-size: 22px;
+    background-color: #eab9e5;
+    border-radius: 10px;
+    margin: 2px;
+    padding:8px;
+}
+
+.form2 input{
+    width:240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #eab9e5;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: black;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form2 input:focus{
+    outline:none;
+
+}
+
+::placeholder{
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn2{
+    width:180px;
+    height:40px;
+    background: #878fd7;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    border: none;
+    margin-top: 50px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-bottom: 20px;
+    font-size:18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn2 a{
+    text-decoration: none;
+    text-align: center;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn2:hover{
+    background: #eab9e5;
+    color:black;
+}
+
+.stuff{
+    text-align:center;
+}
+
+/*Responsive layout for columns and registration page*/
+
+@media(max-width:700px){
+
+    .form1{
+        left:50px;
+
+    }
+
+    .form2{
+        left:50px;
+        top:600px;
+    }
+}
+
+
+/*CSS Styles for the preference page*/
