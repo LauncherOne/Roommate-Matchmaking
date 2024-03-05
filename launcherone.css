@@ -141,8 +141,14 @@ nav {
     font-size: 62px;
 }
 
+.text-box h2 {
+    text-align: center;
+    display: block; 
+    width: auto;
+}
+
 .text-box h2 p {
-    margin: 50px 0 40px;
+    margin: 40px 0 40px;
     font-size: 15px;
     color: white;
     background: rgba(135, 143, 215, 0.8);
@@ -264,16 +270,6 @@ h3 {
     margin-top: 20px;
 }
 
-.contact h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.contact p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
 .contact-info {
     max-width: 600px;
     margin: auto;
@@ -282,6 +278,9 @@ h3 {
 .contact-info h2 {
     font-size: 24px;
     margin-bottom: 20px;
+    text-align: center;
+    display: inline-block; 
+    width: auto;
 }
 
 .contact-info p {
@@ -295,15 +294,15 @@ h3 {
 header{
     min-height: 120vh;
     width:100%;
-background-position: center;
+    background-position: center;
     text-align: center;
     background-size: cover;
     position: relative;
-    
 }
 
 header img{
     padding-top: 20px;
+    display: inline-block;
 }
 
 header h1{
@@ -319,13 +318,13 @@ header.head{
     text-align: center;
     background-size: cover;
     position: relative;
-    
 }
 
 header.head h1{
     background-color: #878fd7;
     color:white;
 }
+
 
 .row1{
     margin-top: 5%;
@@ -679,6 +678,22 @@ h2, .bio, .edit-profile-btn {
         left:50px;
         top:600px;
     }
+}
+
+/*CSS styles for settings page*/
+.settings {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.settings img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+.settings a {
+    text-decoration: none;
+    color: #333;
 }
 
 
