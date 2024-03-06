@@ -682,17 +682,48 @@ h2, .bio, .edit-profile-btn {
 
 /*CSS styles for settings page*/
 
-html{
-    background-color: #878fd7;
+.section1{
+    top:150px;
+    left:450px;
+    position: absolute;
 }
 
-.Headd h1{
-    background-color: #fcf9fc;
+/* .secc h2{
+    background-color: #878fd7;
+    color:white;
+} */
+
+/*settings */
+.Headd h2{ 
+    background-color: #878fd7;
     width: 100%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #0c0c0c;
-    /* height: 10em; */
-} 
+    padding-top: .5em; 
+    padding-bottom: .5em;
+   
+   
+    /*paddings*/
+}
+
+.head11{
+    min-height: 120vh;
+    width:100%;
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+    position: relative;
+}
+
+.head11 img{
+    padding-top: 20px;
+    display: inline-block;
+}
+
+.head11 h1{
+    background-color: #878fd7;
+    color:white;
+}
 /* body{
     justify-content: center;
 } */
@@ -712,7 +743,7 @@ html{
     color: #333;
 }
 .settings span:hover {
-    color: rgb(242, 213, 253);
+    color: #3444d2;
 }
 /* style for delete option */
 .settings1 {
@@ -726,13 +757,19 @@ html{
     color: #333;
 }
 .settings1 span{
-    color: #9e2020;
+    color: #f53333;
 }
 .settings1 span:hover{
-    color: rgb(48, 188, 74);
+    color: rgb(5, 62, 15);
 }
 /* the settings inside a rectangle */
 .settings {
+    border: 2px solid black; /* Border style */
+    padding: 20px; /* Padding inside the rectangle */
+    width: 300px; /* Width of the rectangle */
+    margin: 0 auto; /* Center the rectangle horizontally */
+}
+.settings1 {
     border: 2px solid black; /* Border style */
     padding: 20px; /* Padding inside the rectangle */
     width: 300px; /* Width of the rectangle */
