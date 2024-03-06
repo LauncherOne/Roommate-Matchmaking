@@ -681,9 +681,25 @@ h2, .bio, .edit-profile-btn {
 }
 
 /*CSS styles for settings page*/
+
+html{
+    background-color: #878fd7;
+}
+
+.Headd h1{
+    background-color: #fcf9fc;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #0c0c0c;
+    /* height: 10em; */
+} 
+/* body{
+    justify-content: center;
+} */
 .settings {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    /* align-items: center; */
     margin-bottom: 20px;
 }
 .settings img {
@@ -695,6 +711,32 @@ h2, .bio, .edit-profile-btn {
     text-decoration: none;
     color: #333;
 }
-
+.settings span:hover {
+    color: rgb(242, 213, 253);
+}
+/* style for delete option */
+.settings1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.settings1 a{
+    text-decoration: none;
+    color: #333;
+}
+.settings1 span{
+    color: #9e2020;
+}
+.settings1 span:hover{
+    color: rgb(48, 188, 74);
+}
+/* the settings inside a rectangle */
+.settings {
+    border: 2px solid black; /* Border style */
+    padding: 20px; /* Padding inside the rectangle */
+    width: 300px; /* Width of the rectangle */
+    margin: 0 auto; /* Center the rectangle horizontally */
+}
 
 /*CSS Styles for the preference page*/
