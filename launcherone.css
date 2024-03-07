@@ -700,9 +700,56 @@ header.head1 h1{
 }
 
 /*CSS styles for settings page*/
+
+.section1{
+    top:150px;
+    left:450px;
+    position: absolute;
+}
+
+/* .secc h2{
+    background-color: #878fd7;
+    color:white;
+} */
+
+/*settings */
+.Headd h2{ 
+    background-color: #878fd7;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #0c0c0c;
+    padding-top: .5em; 
+    padding-bottom: .5em;
+   
+   
+    /*paddings*/
+}
+
+.head11{
+    min-height: 120vh;
+    width:100%;
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+    position: relative;
+}
+
+.head11 img{
+    padding-top: 20px;
+    display: inline-block;
+}
+
+.head11 h1{
+    background-color: #878fd7;
+    color:white;
+}
+/* body{
+    justify-content: center;
+} */
 .settings {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    /* align-items: center; */
     margin-bottom: 20px;
 }
 .settings img {
@@ -714,7 +761,39 @@ header.head1 h1{
     text-decoration: none;
     color: #333;
 }
-
+.settings span:hover {
+    color: #3444d2;
+}
+/* style for delete option */
+.settings1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.settings1 a{
+    text-decoration: none;
+    color: #333;
+}
+.settings1 span{
+    color: #f53333;
+}
+.settings1 span:hover{
+    color: rgb(5, 62, 15);
+}
+/* the settings inside a rectangle */
+.settings {
+    border: 2px solid black; /* Border style */
+    padding: 20px; /* Padding inside the rectangle */
+    width: 300px; /* Width of the rectangle */
+    margin: 0 auto; /* Center the rectangle horizontally */
+}
+.settings1 {
+    border: 2px solid black; /* Border style */
+    padding: 20px; /* Padding inside the rectangle */
+    width: 300px; /* Width of the rectangle */
+    margin: 0 auto; /* Center the rectangle horizontally */
+}
 
 /*CSS Styles for the register page*/
 /*
