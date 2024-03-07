@@ -346,8 +346,8 @@ header.head h1{
     width:250px;
     height:380px;
     position: absolute;
-    top:120px;
-    left:150px;
+    top:150px;
+    left:600px;
     border:2px solid black;
     border-radius: 10px;
     padding: 25px;
@@ -530,6 +530,8 @@ h2, .bio, .edit-profile-btn {
     margin-right: 0;
 }
 
+/* CSS Styles for registration page and the forms */
+
 .form1 input{
     width:240px;
     height: 35px;
@@ -583,6 +585,21 @@ h2, .bio, .edit-profile-btn {
 }
 
 
+/* CSS styles for login page*/
+
+header.head1{
+    min-height: 120vh;
+    width:100%; 
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+    position: relative;
+}
+
+header.head1 h1{
+    background-color: #878fd7;
+    color:white;
+}
 
 .form2{
     width:250px;
@@ -665,6 +682,8 @@ h2, .bio, .edit-profile-btn {
     text-align:center;
 }
 
+*/
+
 /*Responsive layout for columns and registration page*/
 
 @media(max-width:700px){
@@ -697,4 +716,58 @@ h2, .bio, .edit-profile-btn {
 }
 
 
-/*CSS Styles for the preference page*/
+/*CSS Styles for the register page*/
+/*
+*  {
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body.body1{
+    background: linear-gradient(to right, white, #878fd7);
+    font-family: 'Poppins',sans-serif;
+    height:100vh;
+}
+
+.center{
+    position:absolute;
+    top:50%;
+    left:25%;
+    transform: translate(-50%,-50%);
+}
+
+.center button{
+    padding:10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    background: #eab9e5;
+    border: none;
+    outline:none;
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+.popup{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:380px;
+    padding: 20px 30px;
+    background: white;
+    box-shadow: 2px 5px 5px black;
+    border-radius: 10px;
+}
+
+.popup .close-btn{
+    position: absolute;
+    top:10px;
+    right:10px;
+    width:100px;
+    height:100px;
+    background: white;
+}
+
+*/
