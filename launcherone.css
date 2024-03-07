@@ -292,7 +292,7 @@ h3 {
 
 
 header{
-    min-height: 120vh;
+    min-height: 20px;
     width:100%;
     background-position: center;
     text-align: center;
@@ -312,7 +312,7 @@ header h1{
 
 /*CSS Styles for registration page*/
 header.head{
-    min-height: 120vh;
+    min-height: 20px;
     width:100%; 
     background-position: center;
     text-align: center;
@@ -850,3 +850,124 @@ body.body1{
 }
 
 */
+
+/* Create Listing Section Styles */
+.create-listing {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 80%; /* Occupy 80% of the width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px; /* Adjust the margin-top to position it 20 pixels below the header */
+}
+
+
+.create-listing h2 {
+    color: #878fd7;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    width: 100%; /* Ensure the heading takes full width */
+}
+
+#create-listing-form {
+    max-width: 100%; /* Adjusted to 100% */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-listing .form-group {
+    margin-bottom: 20px;
+}
+
+.create-listing label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.create-listing input[type="file"],
+.create-listing textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.create-listing textarea {
+    resize: vertical;
+    height: 200px;
+}
+
+.create-listing button[type="submit"] {
+    width: 30%;
+    padding: 10px 0;
+    background-color: #878fd7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-listing button[type="submit"]:hover {
+    background-color: #eab9e5 !important;
+}
+
+.view-listings {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 80%; /* Occupy 80% of the width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.view-listings h2 {
+    color: #878fd7;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    width: 100%; /* Ensure the heading takes full width */
+}
+
+.view-listings .listing {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.view-listings img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.view-listings p {
+    margin-bottom: 10px;
+}
+
+.view-listings .edit-listing-btn,
+.view-listings .delete-listing-btn {
+    background-color: #878fd7;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Adjust margin between buttons if needed */
+}
+
+.view-listings .edit-listing-btn:hover,
+.view-listings .delete-listing-btn:hover {
+    background-color: #eab9e5;
+}
+
