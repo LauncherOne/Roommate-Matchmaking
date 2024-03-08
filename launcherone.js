@@ -170,3 +170,150 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+//firebase user authentication and database
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
+    authDomain: "roommate-match-making.firebaseapp.com",
+    projectId: "roommate-match-making",
+    storageBucket: "roommate-match-making.appspot.com",
+    messagingSenderId: "1086011648278",
+    appId: "1:1086011648278:web:a37275f476af35c2fc8837",
+    measurementId: "G-03Y8JYTZS5"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+  //initializing our variables
+  const database = firebase.database();
+  const auth = firebase.auth();
+
+  //setting up our register funtion
+
+  button = document.getElementById("btn1");
+  button.addEventListener('submit', register())
+
+  function register(){
+    email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
+    username = document.getElementById("username").value;
+    confirmPassword = document.getElementById("confirmPassword").value;
+
+    //validate input fields
+    if(validate_email(email) == false || validate_password(password) == false){
+        alert("Incorrect format of email and password")
+        return;
+        //stops running the code until it's fixed
+    }
+
+    if(validate_field(username) == false || validate_field(confirmPassword) == false){
+        alert("Fields are missing")
+    }
+
+    //authenticating our users
+    auth.createUserWithEmailAndPassword(email, password)
+    .then(function(){
+
+        var user = auth.currentUser;
+        //add user to firebase database
+        var database_ref = database.ref;
+        var user_data = {
+            email : email,
+            username: username,
+            last_login: Date.now()
+        }
+
+        database_ref.child("users/" + user.uid).set(user_data);
+
+
+
+        alert("Sign up successful");
+
+    })
+    .catch(function(error){
+        var error_code = error.code;
+        var error_message = error.message
+
+        alert(error.message);
+    })
+  }
+
+  //setting up our login function
+  function login(){
+
+email = document.getElementById("email").value;
+  password = document.getElementById("password").value;
+
+
+    //validate input fields
+    if(validate_email(email) == false || validate_password(password) == false){
+        alert("Incorrect format of email and password")
+        return;
+        //stops running the code until it's fixed
+    }
+
+    auth.signInWithEmailAndPassword(email,password)
+    .then(function(){
+        var user = auth.currentUser;
+        //add user to firebase database
+        var database_ref = database.ref;
+        var user_data = {
+           
+            last_login: Date.now()
+        }
+
+        database_ref.child("users/" + user.uid).update(user_data);
+
+
+
+        alert("User Logged In");
+
+    })
+    .catch(function(error){
+        var error_code = error.code;
+        var error_message = error.message
+
+        alert(error.message);
+    })
+  }
+ 
+
+  //validating input fields
+  function validate_email(email){
+    expression = /^[^@]+@\w+(\.\w+)+\w$/;
+    if(expression.test(email) == true){
+        //email is good
+        return true;
+    }
+    else{
+        return false;
+    }
+
+  }
+
+  function validate_password(password){
+    if(password < 6 ){
+        return false;
+    }
+    else{
+        return true;
+    }
+  }
+
+  function validate_field(field){
+    if(field == null){
+        return false;
+    }
+
+    if(field.length <= 0){
+        return false;
+    }
+    else{
+        return true;
+    }
+  }
+
+
+
