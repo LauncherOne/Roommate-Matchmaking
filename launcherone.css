@@ -682,20 +682,18 @@ header.head1 h1{
     text-align:center;
 }
 
-*/
 
 /*Responsive layout for columns and registration page*/
 
-@media(max-width:700px){
+@media (max-width: 700px) {
 
-    .form1{
-        left:50px;
-
+    .form1 {
+        left: 50px;
     }
 
-    .form2{
-        left:50px;
-        top:600px;
+    .form2  {
+        left: 50px;
+        top: 600px;
     }
 }
 
