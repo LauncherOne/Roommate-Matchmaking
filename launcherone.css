@@ -432,7 +432,6 @@ header.head h1{
 .profile-section {
     padding: 20px;
     position: relative;
-    top: -750px;
 }
 
 .profile-header {
@@ -442,14 +441,12 @@ header.head h1{
 
 .left-column {
     width: 30%; /* Adjust width as needed */
-    border: 2px solid black;
     text-align: center;
     padding: 20px;
 }
 
 .right-column {
     width: 70%; /* Adjust width as needed */
-    border: 2px solid black;
     padding: 20px;
 }
 
@@ -485,6 +482,7 @@ h2, .bio, .edit-profile-btn {
     padding: 0;
     margin: 0;
     display: flex; /* Use flexbox */
+    margin-bottom: 20px;
 }
 
 .profile-links ul li {
@@ -968,3 +966,83 @@ body.body1{
     background-color: #eab9e5;
 }
 
+/* CSS for Chat */
+.chat-container {
+    display: flex;
+    padding: 20px;
+    position: relative;
+}
+
+.chat-list {
+    flex: 1;
+    margin-right: 20px;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+
+.chat-list h2 {
+    margin-top: 0;
+    text-align: left;
+}
+
+.chat-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.chat-list li {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+.chat-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.chat-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+}
+
+.chat-area h2 {
+    margin-top: 0;
+    text-align: left;
+}
+
+.messages {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: calc(100vh - 270px); /* Subtract height of chat input area */
+    overflow-y: auto;
+    flex-grow: 1; /* Grow to fill remaining space */
+}
+
+#message-form {
+    display: flex;
+    align-items: center;
+    padding-top: 10px; /* Add padding to separate from messages */
+}
+
+#message-input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#message-form button {
+    padding: 10px 20px;
+    background-color: #878fd7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#message-form button:hover {
+    background-color: #eab9e5;
+}

@@ -170,6 +170,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const messageForm = document.getElementById("message-form");
+    const messageInput = document.getElementById("message-input");
+    const messages = document.getElementById("messages");
+
+    // Function to handle message submission
+    messageForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const message = messageInput.value.trim();
+        if (message !== "") {
+            const div = document.createElement("div");
+            div.textContent = message;
+            messages.appendChild(div);
+            // Scroll to the bottom of the messages div to show the latest message
+            messages.scrollTop = messages.scrollHeight;
+            messageInput.value = "";
+        }
+    });
+});
+
 //firebase user authentication and database
 
 
