@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //firebase user authentication and database
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
     authDomain: "roommate-match-making.firebaseapp.com",
@@ -183,19 +184,45 @@ const firebaseConfig = {
   };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-
-  //initializing our variables
+  const app = initializeApp(firebaseConfig);
   const database = firebase.database();
   const auth = firebase.auth();
 
   //setting up our register funtion
+  button = document.getElementById('btn1');
+  button.addEventListener('click', () => {
 
-  button = document.getElementById("btn1");
-  button.addEventListener('submit', register())
+    email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
+    username = document.getElementById("username").value;
+    confirmPassword = document.getElementById("confirmPassword").value;
 
-  function register(){
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    //adding the user to firebase database
+    var database_ref = database.ref;
+        var user_data = {
+            email : email,
+            username: username,
+            last_login: Date.now()
+        }
+
+        database_ref.child("users/" + user.uid).set(user_data);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+  console.log('User data saved to Database');
+
+  });
+
+  /*function register(){
     email = document.getElementById("email").value;
     password = document.getElementById("password").value;
     username = document.getElementById("username").value;
@@ -239,6 +266,8 @@ const firebaseConfig = {
         alert(error.message);
     })
   }
+
+  */
 
   //setting up our login function
   function login(){
