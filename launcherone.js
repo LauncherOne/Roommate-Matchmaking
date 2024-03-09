@@ -260,34 +260,6 @@ createUserWithEmailAndPassword(auth, email, password)
     }
 
     //authenticating our users
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function(){
-
-        var user = auth.currentUser;
-        //add user to firebase database
-        var database_ref = database.ref;
-        var user_data = {
-            email : email,
-            username: username,
-            last_login: Date.now()
-        }
-
-        database_ref.child("users/" + user.uid).set(user_data);
-
-
-
-        alert("Sign up successful");
-
-    })
-    .catch(function(error){
-        var error_code = error.code;
-        var error_message = error.message
-
-        alert(error.message);
-    })
-  }
-
-  */
 
   //setting up our login function
   function login(){
