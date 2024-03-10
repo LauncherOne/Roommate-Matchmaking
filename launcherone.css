@@ -345,12 +345,7 @@ header.head h1{
 
 */
 
-.section1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
+
 
 .form1{
     width:250px;
@@ -359,7 +354,7 @@ header.head h1{
     border:2px solid black;
     border-radius: 10px;
     padding: 25px;
-    
+    transform: translate(-50%,-50%);
     }
 
 .form1 h2{
@@ -695,9 +690,9 @@ header.head1 h1{
 @media (max-width: 700px) {
 
     .form1 {
-        left: 20%;
+        left: 50%;
         top: 50%;
-        transform: translate(-85%,-85%);
+        transform: translate(-50%,-50%);
     }
 
     .form2  {
@@ -710,8 +705,8 @@ header.head1 h1{
 /*CSS styles for settings page*/
 
 .section1{
-    top:150px;
-    left:450px;
+    top: 50%;
+    left: 50%;
     position: absolute;
 }
 
