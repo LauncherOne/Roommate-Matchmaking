@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <script src="launcherone.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -25,12 +26,10 @@
                             <img id="profile-image-preview" src="default_profile_pic.png" alt="Profile Picture" onclick="document.getElementById('profile-image-upload').click()">
                             <input type="file" id="profile-image-upload" accept="image/*" onchange="previewProfilePicture(event)" style="display: none;">
                         </div>
-                        <!-- Name -->
-                        <h2>Emily Nguyen</h2>
-                        <!-- Bio -->
-                        <p class="bio">2nd Year TRU Student. Looking for a female roommate.</p>
+                        <!-- Username -->
+                        <h3 class="profile-username-value" id="usernameValue"></h3>
                         <!-- Edit profile button -->
-                        <input type="button" class="edit-profile-btn" onclick="editProfile()" value="Edit Profile"></input>
+                        <button class="edit-profile-btn" onclick="editProfile()">Edit Profile</button>
                     </div>
                     <div class="right-column">
                         <!-- Links/buttons -->
@@ -43,99 +42,266 @@
                         <!-- Preferences input fields -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Name:</span>
-                            <span class="profile-info-value">Emily Nguyen</span>
-                            <input type="text" class="profile-input" id="name" placeholder="Emily Nguyen">
+                            <span class="profile-info-value" id="name-value"></span>
+                            <input type="text" class="profile-input" id="name" placeholder="">
                         </div>
                         <!-- Bio -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Bio:</span>
-                            <span class="profile-info-value">2nd Year TRU Student. Looking for a female roommate.</span>
-                            <input type="text" class="profile-input" id="bio" placeholder="2nd Year TRU Student. Looking for a female roommate.">
+                            <span class="profile-info-value" id="bio-value"></span>
+                            <input type="text" class="profile-input" id="bio" placeholder="E.g. 2nd Year TRU Student. Looking for a female roommate.">
                         </div>
                         <!-- Age -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Age:</span>
-                            <span class="profile-info-value">20</span>
+                            <span class="profile-info-value" id="age-value"></span>
                             <input type="number" class="profile-input" id="age" min="18" max="99">
                         </div>
                         <!-- Year in University -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Year in University:</span>
-                            <span class="profile-info-value">2nd Year</span>
+                            <span class="profile-info-value" id="year-value"></span>
                             <select class="profile-input" id="university-year">
-                                <option value="1">1st Year</option>
-                                <option value="2">2nd Year</option>
-                                <option value="3">3rd Year</option>
-                                <option value="4">4th Year</option>
-                                <option value="5">5th Year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                                <option value="5th Year">5th Year</option>
                             </select>
                         </div>
                         <!-- Gender -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Gender:</span>
-                            <span class="profile-info-value">Female</span>
+                            <span class="profile-info-value" id="gender-value"></span>
                             <select class="profile-input" id="gender">
-                                <option value="male">Female</option>
-                                <option value="female">Male</option>
-                                <option value="other">Other</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <!-- Roommate Preference -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Roommate Preference:</span>
-                            <span class="profile-info-value">Female</span>
+                            <span class="profile-info-value" id="roommate-value"></span>
                             <select class="profile-input" id="roommate-preference">
-                                <option value="female">Female</option>
-                                <option value="male">Male</option>
-                                <option value="other">Other</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <!-- Preferred Location -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Preferred Location:</span>
-                            <span class="profile-info-value">Summit Drive</span>
-                            <input type="text" class="profile-input" id="location" placeholder="Summit Drive">
+                            <span class="profile-info-value" id="location-value"></span>
+                            <input type="text" class="profile-input" id="location" placeholder="E.g. Summit Drive">
                         </div>
                         <!-- Pet-Friendly Accommodation -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Pet-Friendly Accommodation:</span>
-                            <span class="profile-info-value">Yes</span>
+                            <span class="profile-info-value" id="pet-value"></span>
                             <select class="profile-input" id="pet-friendly">
-                                <option value="any">Any</option>
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                                <option value="Any">Any</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
                         <!-- Type of Accommodation -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Type of Accommodation:</span>
-                            <span class="profile-info-value">2-Bedroom</span>
-                            <input type="text" class="profile-input" id="accommodation-type" placeholder="2-Bedroom">
+                            <span class="profile-info-value" id="accom-value"></span>
+                            <input type="text" class="profile-input" id="accommodation-type" placeholder="E.g. 2-Bedroom">
                         </div>
                         <!-- Student Status -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Student Status:</span>
-                            <span class="profile-info-value">Undergraduate</span>
+                            <span class="profile-info-value" id="student-value"></span>
                             <select class="profile-input" id="student-status">
-                                <option value="undergrad">Undergraduate</option>
-                                <option value="graduate">Graduate</option>
+                                <option value="Undergraduate">Undergraduate</option>
+                                <option value="Graduate">Graduate</option>
                             </select>
                         </div>
                         <!-- Budget Range -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Budget Range:</span>
-                            <span class="profile-info-value">0 - 1500</span>
+                            <div style="float:left;">
+                                <span class="profile-info-value" id="minBudget-value"></span> 
+                                <span class="profile-info-value">-</span>
+                                <span class="profile-info-value" id="maxBudget-value"></span>
+                                </div>
                             <div class="budget-inputs">
                                 <input type="number" class="profile-input" id="minBudget" name="minBudget" min="0" max="1500" step="100" placeholder="Minimum">
                                 <input type="number" class="profile-input" id="maxBudget" name="maxBudget" min="0" max="1500" step="100" placeholder="Maximum">
                             </div>
-                        </div>                      
+                        </div>   
+                        <button class="saveButton" onclick="saveProfile()">Save Preferences</button>                   
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- This page is incomplete, still need to add save functionaility to save the inputs. 
-            Edit profile stext should be changed to save when toggled but not working -->
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+            import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"; 
+        
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
+                authDomain: "roommate-match-making.firebaseapp.com",
+                databaseURL:
+                "https://roommate-match-making-default-rtdb.firebaseio.com",
+                projectId: "roommate-match-making",
+                storageBucket: "roommate-match-making.appspot.com",
+                messagingSenderId: "1086011648278",
+                appId: "1:1086011648278:web:a37275f476af35c2fc8837",
+                measurementId: "G-03Y8JYTZS5",
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const database = getDatabase(app);
+        
+            // Listen for changes in authentication state
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    // User is signed in, fetch user data from Firebase Authentication
+                    const username = user.email;
+        
+                    // Set the username to the profile HTML element
+                    const usernameElement = document.getElementById('usernameValue');
+                    if (usernameElement) {
+                        usernameElement.innerText = username;
+                    }
+                } else {
+                    // No user is signed in, handle this case if necessary
+                    console.log('No user signed in');
+                }
+            });
+
+            function previewProfilePicture(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('profile-image-preview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function editProfile() {
+            var profileInputs = document.querySelectorAll('.profile-input');
+            var profileValues = document.querySelectorAll('.profile-info-value');
+            var saveButton = document.querySelector('.saveButton');
+            var editProfileButton = document.querySelector('.edit-profile-btn');
+
+            if (profileInputs[0].style.display === "none") {
+                // Switch to edit mode
+                profileInputs.forEach(input => input.style.display = "inline");
+                profileValues.forEach(value => value.style.display = "none");
+                saveButton.style.display = "block";
+                editProfileButton.style.display  = "none";
+            } else {
+                // Switch back to display mode
+                profileInputs.forEach(input => input.style.display = "none");
+                profileValues.forEach(value => value.style.display = "inline");
+                saveButton.style.display = "none";
+                editProfileButton.style.display  = "block";
+            }
+        }
+
+        function saveProfile() {
+            var user = auth.currentUser;
+            if (!user) {
+                console.log('No user signed in');
+                return;
+            }
+
+            var profileInputs = document.querySelectorAll('.profile-input');
+            var profileValues = document.querySelectorAll('.profile-info-value');
+            var saveButton = document.querySelector('.saveButton');
+            var editProfileButton = document.querySelector('.edit-profile-btn');
+
+            var name = $('#name').val();
+            var bio = $('#bio').val();
+            var age = $('#age').val();
+            var universityYear = $('#university-year').val();
+            var gender = $('#gender').val();
+            var roommatePreference = $('#roommate-preference').val();
+            var location = $('#location').val();
+            var petFriendly = $('#pet-friendly').val();
+            var accommodationType = $('#accommodation-type').val();
+            var studentStatus = $('#student-status').val();
+            var minBudget = $('#minBudget').val();
+            var maxBudget = $('#maxBudget').val();
+
+            $(document).ready(function() {
+                // Retrieve values from input fields
+            
+                // Set innerHTML of corresponding elements
+                $('#name-value').text(name);
+                $('#bio-value').text(bio);
+                $('#age-value').text(age);
+                $('#year-value').text(universityYear);
+                $('#gender-value').text(gender);
+                $('#roommate-value').text(roommatePreference);
+                $('#location-value').text(location);
+                $('#pet-value').text(petFriendly);
+                $('#accomm-value').text(accommodationType);
+                $('#student-value').text(studentStatus);
+                $('#minBudget-value').text(minBudget);
+                $('#maxBudget-value').text(maxBudget);
+            });
+            
+
+            // Check if any of the input fields are empty
+            if (
+                !name || !bio || !age || !universityYear || !gender || !roommatePreference || 
+                !location || !petFriendly || !accommodationType || !studentStatus || !minBudget || !maxBudget
+            ) {
+                // If any field is empty, show an alert and return early
+                alert("Please fill in all input fields.");
+                return;
+            }
+
+            // Create a reference to the user's profile in the database
+                var userRef = ref(database, 'users/' + user.uid + '/profile');
+
+            // Set the profile data in the database
+            set(userRef, {
+                name: name,
+                bio: bio,
+                age: age,
+                universityYear: universityYear,
+                gender: gender,
+                roommatePreference: roommatePreference,
+                location: location,
+                petFriendly: petFriendly,
+                accommodationType: accommodationType,
+                studentStatus: studentStatus,
+                minBudget: minBudget,
+                maxBudget: maxBudget
+            }).then(() => {
+                console.log('Profile saved successfully');
+            }).catch((error) => {
+                console.error('Error saving profile:', error);
+            });
+
+            if (profileInputs[0].style.display === "none") {
+                // Switch to edit mode
+                profileInputs.forEach(input => input.style.display = "inline");
+                profileValues.forEach(value => value.style.display = "none");
+                saveButton.style.display = "block";
+                editProfileButton.style.display  = "none";
+            } else {
+                // Switch back to display mode
+                profileInputs.forEach(input => input.style.display = "none");
+                profileValues.forEach(value => value.style.display = "inline");
+                saveButton.style.display = "none";
+                editProfileButton.style.display  = "block";
+            }
+        }
+        </script>
+        
     </body>
 </html>

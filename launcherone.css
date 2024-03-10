@@ -443,6 +443,11 @@ header.head h1{
     justify-content: space-between;
 }
 
+.profile-username-value {
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
 .left-column {
     width: 30%; /* Adjust width as needed */
     text-align: center;
@@ -478,6 +483,27 @@ h2, .bio, .edit-profile-btn {
 }
 
 .edit-profile-btn:hover {
+    background-color: #eab9e5;
+}
+
+.saveButton {
+    padding: 10px 20px;
+    background-color: #878fd7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+    width: 350px;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: none;
+}
+
+.saveButton:hover {
     background-color: #eab9e5;
 }
 
