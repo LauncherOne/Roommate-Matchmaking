@@ -33,12 +33,11 @@
         <input
           type="password"
           id="logInPassword"
-          placeholder="Create a Password"
+          placeholder="Enter your Password"
         />
         <button
           class="btn2"
           id="logInButton"
-          onclick="location.href = 'launcherone_home.html';"
         >
           Log In
         </button>
@@ -52,7 +51,7 @@
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
       import {
         getAuth,
-        logInWithEmailAndPassword,
+        signInWithEmailAndPassword,
       } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -88,13 +87,30 @@
         const logInEmail = userEmail.value;
         const logInPassword = userPassword.value;
 
-        logInWithEmailAndPassword(auth, logInEmail, logInPassword)
+        signInWithEmailAndPassword(auth, logInEmail, logInPassword)
           .then((userCredential) => {
             const user = userCredential.user;
-            alert("You have signed in successfully!");
+            console.log("You have signed in successfully", user);
+            alert("You have successfully logged in");
+
+            //redirects the user to the next pageupon successful login
+
+            window.location.href = "launcherone_matches.html";
           })
           .catch((error) => {
-            console.log(error.code + error.message);
+            console.error("Login error: " + error.message);
+
+            //displays a message that the login was unsuccessful
+            alert("Login unsuccessful. Please try again.");
+
+            //checks if the error is due to user not found
+            if(errorCode === 'auth-user-not-found'){
+              //alerts the user that the email entered is incorrect
+              alert("Email not found. Please enter a valid email!");
+            }
+            else{
+              alert(error.message);
+            }
           });
       };
 

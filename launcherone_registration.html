@@ -29,17 +29,18 @@
     <section class="section1">
       <div class="form1" id="signUpForm">
         <h2>Sign up Here</h2>
-        <input type="email" id="email" placeholder="Enter Email Here" />
-        <input type="text" id="username" placeholder="Enter a Username" />
-        <input type="password" id="password" placeholder="Create a Password" />
-        <input
-          type="password"
-          id="confirmPassword"
-          placeholder="Re-enter your password"
-        />
+        <form>
+          <input type="email" id="email" placeholder="Enter Email Here" />
+          <input type="text" id="username" placeholder="Enter a Username" />
+          <input type="text" id="password" placeholder="Create a Password" />
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Re-enter your password"
+          />
+        </form>
         <button
           class="btn1"
-          onclick="location.href = 'launcherone.html';"
           id="signUpButton"
         >
           Sign Up
@@ -93,23 +94,49 @@
         const signUpPassword = userPassword.value;
         const signUpUsername = userName.value;
         const signUpPasswordConfirmation = passwordConfirmation.value;
+
+        if(signUpPassword != signUpPasswordConfirmation){
+          //display an error message if the passwords entered don't match
+          alert("Passwords do not match. Please enter the same passwords in both fields.");
+          return; //exit the function
+        }
+        
+
         createUserWithEmailAndPassword(
           auth,
           signUpEmail,
-          signUpPassword,
-          signUpUsername
+          signUpPassword
         )
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
             alert("Your account has been created!");
+
+            //displays the next page is the sign-up was successful
+            window.location.href = "launcherone.html";
           })
           .catch((error) => {
-            console.log(error.code + error.message);
+            console.error("Sign up error: " + error.message);
+            
           });
       };
 
       signUpButton.addEventListener("click", register);
+
+      function togglePasswordVisibility(){
+        var passwordField = document.getElementById("password");
+        var showPasswordCheckBox = document.getElementById("showPassword");
+
+        if(showPasswordCheckBox.checked){
+          passwordField.type = "text";
+        }else{
+          passwordField.type = "password";
+        }
+      }
+
+      //event listener to toggle password visibility
+      document.getElementById("showPassword").addEventListener("change", togglePasswordVisibility);
+
     </script>
   </body>
 

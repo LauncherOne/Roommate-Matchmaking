@@ -325,12 +325,13 @@ header.head h1{
     color:white;
 }
 
-
+/*
 .row1{
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
 }
+
 
 .body-col1{
     flex-basis: 31%;
@@ -342,15 +343,23 @@ header.head h1{
     transition: 0.5s;
 }
 
+*/
+
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .form1{
     width:250px;
     height:380px;
     position: absolute;
-    top:50px;
-    left:350px;
     border:2px solid black;
     border-radius: 10px;
     padding: 25px;
+    
     }
 
 .form1 h2{
@@ -363,7 +372,7 @@ header.head h1{
     border-radius: 10px;
     margin: 2px;
     padding:8px;
-        background-color: #eab9e5;
+     background-color: #eab9e5;
 }
 
 
@@ -602,11 +611,12 @@ header.head1 h1{
     width:250px;
     height:380px;
     position: absolute;
-    top:120px;
-    left:800px;
+    top:50%;
+    left:50%;
     border: 2px solid black;
     border-radius: 10px;
     padding: 25px;
+    transform: translate(-50%,-50%);
 }
 
 .form2 h2{
@@ -685,12 +695,15 @@ header.head1 h1{
 @media (max-width: 700px) {
 
     .form1 {
-        left: 50px;
+        left: 20%;
+        top: 50%;
+        transform: translate(-85%,-85%);
     }
 
     .form2  {
-        left: 50px;
-        top: 600px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
     }
 }
 
@@ -790,61 +803,7 @@ header.head1 h1{
     margin: 0 auto; /* Center the rectangle horizontally */
 }
 
-/*CSS Styles for the register page*/
-/*
-*  {
-    margin:0px;
-    padding:0px;
-    box-sizing: border-box;
-}
 
-body.body1{
-    background: linear-gradient(to right, white, #878fd7);
-    font-family: 'Poppins',sans-serif;
-    height:100vh;
-}
-
-.center{
-    position:absolute;
-    top:50%;
-    left:25%;
-    transform: translate(-50%,-50%);
-}
-
-.center button{
-    padding:10px 20px;
-    font-size: 15px;
-    font-weight: 600;
-    color: black;
-    background: #eab9e5;
-    border: none;
-    outline:none;
-    cursor:pointer;
-    border-radius: 5px;
-}
-
-.popup{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    width:380px;
-    padding: 20px 30px;
-    background: white;
-    box-shadow: 2px 5px 5px black;
-    border-radius: 10px;
-}
-
-.popup .close-btn{
-    position: absolute;
-    top:10px;
-    right:10px;
-    width:100px;
-    height:100px;
-    background: white;
-}
-
-*/
 
 /* Create Listing Section Styles */
 .create-listing {
@@ -1046,3 +1005,5 @@ body.body1{
 #message-form button:hover {
     background-color: #eab9e5;
 }
+
+
