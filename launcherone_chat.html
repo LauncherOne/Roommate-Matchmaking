@@ -1,63 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
-    <title>Roommate Match-Making Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
-    />
 
-    <link rel="stylesheet" href="launcherone.css" />
-    <script src="launcherone.js"></script>
-  </head>
+<head>
+  <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
+  <title>Roommate Match-Making Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" />
 
-  <body>
-    <header class="head">
-      <h1>
-        <img
-          src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png"
-          alt=""
-        />LAUNCHER-ONE
-      </h1>
-    </header>
-
-    <main class="chat-container">
-      <section class="chat-list">
-        <h2>Chat List</h2>
-        <ul id="chat-list">
-          <!-- Chat list items will be dynamically populated here -->
-        </ul>
-      </section>
-
-      <section class="chat-area">
-        <h2 id="chat-title">Person Name</h2>
-        <div class="messages" id="messages">
-          <!-- Messages will be dynamically loaded here -->
-        </div>
-        <form id="message-form">
-          <input
-            type="text"
-            id="message-input"
-            placeholder="Type your message..."
-          />
-          <button id="submitButton" type="submit">Send</button>
-        </form>
-      </section>
-    </main>
-
-
-
+  <link rel="stylesheet" href="launcherone.css" />
+  <script src="launcherone.js"></script>
+</head>
 
 <body>
   <header class="head">
-    <h1><img src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png" alt="">LAUNCHER-ONE</h1>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="launcherone_profile.html">Profile</a>
+        <a href="launcherone_matches.html">Matches</a>
+        <a href="launcherone_settings.html">Settings</a>
+      </div>
+    </div>
+    <h1>LAUNCHER-ONE</h1>
   </header>
 
   <main class="chat-container">
@@ -65,29 +34,65 @@
       <h2>Chat List</h2>
       <ul id="chat-list">
         <!-- Chat list items will be dynamically populated here -->
-        <div class="chat-list-profile">
-          <img id="chat-profile-image" src="default_profile_pic.png" alt="Match Profile Picture">
-          <h3 id="chat-profile-name">Match Name</h3>
-      </div>
       </ul>
     </section>
 
     <section class="chat-area">
-      <div id="chat-title-and-image">
-        <img id="chat-image" src="default_profile_pic.png" alt="Match Profile Picture">
-        <h2 id="chat-title">Person Name</h2>
-      </div>
+      <h2 id="chat-title">Person Name</h2>
       <div class="messages" id="messages">
         <!-- Messages will be dynamically loaded here -->
       </div>
       <form id="message-form">
-        <input type="text" id="message-input" placeholder="Type your message...">
-        <button type="submit">Send</button>
+        <input type="text" id="message-input" placeholder="Type your message..." />
+        <button id="submitButton" type="submit">Send</button>
       </form>
     </section>
   </main>
 
-  <script type=module>
+
+
+
+  <body>
+    <header class="head">
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="launcherone_profile.html">Profile</a>
+          <a href="launcherone_matches.html">Matches</a>
+          <a href="launcherone_settings.html">Settings</a>
+        </div>
+      </div>
+      <h1>LAUNCHER-ONE</h1>
+    </header>
+
+    <main class="chat-container">
+      <section class="chat-list">
+        <h2>Chat List</h2>
+        <ul id="chat-list">
+          <!-- Chat list items will be dynamically populated here -->
+          <div class="chat-list-profile">
+            <img id="chat-profile-image" src="default_profile_pic.png" alt="Match Profile Picture">
+            <h3 id="chat-profile-name">Match Name</h3>
+          </div>
+        </ul>
+      </section>
+
+      <section class="chat-area">
+        <div id="chat-title-and-image">
+          <img id="chat-image" src="default_profile_pic.png" alt="Match Profile Picture">
+          <h2 id="chat-title">Person Name</h2>
+        </div>
+        <div class="messages" id="messages">
+          <!-- Messages will be dynamically loaded here -->
+        </div>
+        <form id="message-form">
+          <input type="text" id="message-input" placeholder="Type your message...">
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script type=module>
             // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
@@ -230,9 +235,10 @@
       }
     </script>
   </body>
+
 </html>
 
-        </script>
+</script>
 </body>
 
 </html>
