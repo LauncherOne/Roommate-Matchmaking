@@ -16,12 +16,10 @@
 
     <body>
         <script type="module">
-            // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
             import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
             import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"; 
             
-            // Your web app's Firebase configuration
             const firebaseConfig = {
                 apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
                 authDomain: "roommate-match-making.firebaseapp.com",
@@ -46,7 +44,7 @@
                     const username = user.email;
 
                     // Set the username to the profile HTML element
-                    const usernameElement = document.getElementById('usernameValue');
+                    const usernameElement = document.getElementById('emailValue');
                     if (usernameElement) {
                         usernameElement.innerText = username;
                     }
@@ -56,24 +54,13 @@
                 }
             });
 
-            function previewProfilePicture(event) {
-                var reader = new FileReader();
-                reader.onload = function () {
-                    var output = document.getElementById('profile-image-preview');
-                    output.src = reader.result;
-                }
-                reader.readAsDataURL(event.target.files[0]);
-            }
-
             var profileInputs = document.querySelectorAll('.profile-input');
             var profileValues = document.querySelectorAll('.profile-info-value');
             var saveButton = document.querySelector('.saveButton');
             var editProfileButton = document.querySelector('.edit-profile-btn');
 
             const savePref = async () => {
-                console.log("Save profile in profile html called");
                 var user = auth.currentUser;
-                console.log("user: ", user);
 
                 var name = $('#name').val();
                 var bio = $('#bio').val();
@@ -87,11 +74,13 @@
                 var studentStatus = $('#student-status').val();
                 var minBudget = $('#minBudget').val();
                 var maxBudget = $('#maxBudget').val();
+                var profileImageUrl = $('#profile-image-preview').attr('src');
 
                 $(document).ready(function() {
                     // Retrieve values from input fields
                 
                     // Set innerHTML of corresponding elements
+                    $('#headNameValue').text(name);
                     $('#name-value').text(name);
                     $('#bio-value').text(bio);
                     $('#age-value').text(age);
@@ -119,7 +108,6 @@
 
                 // Create a reference to the user's profile in the database
                 var userRef = ref(database, 'users/' + user.uid);
-                console.log("userRef: ", userRef);
 
                 // Set the profile data in the database
                 set(userRef, {
@@ -134,7 +122,8 @@
                     accommodationType: accommodationType,
                     studentStatus: studentStatus,
                     minBudget: minBudget,
-                    maxBudget: maxBudget
+                    maxBudget: maxBudget,
+                    profileImageUrl: profileImageUrl
                 }).then(() => {
                     console.log('Profile saved successfully');
                 }).catch((error) => {
@@ -153,10 +142,26 @@
                     profileValues.forEach(value => value.style.display = "inline");
                     saveButton.style.display = "none";
                     editProfileButton.style.display  = "block";
+                    document.querySelector('.profile-links').style.display = "block";
+
                 }
             }
 
             saveButton.addEventListener('click', savePref);
+            
+            document.getElementById('seeMatchesButton').addEventListener('click', () => {
+                window.location.href = "launcherone_matches.html";
+            });
+
+            function previewProfilePicture(event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('profile-image-preview');
+                    output.src = reader.result;
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            }
+
         </script>
         
         <header class="head">
@@ -172,17 +177,18 @@
                             <img id="profile-image-preview" src="default_profile_pic.png" alt="Profile Picture" onclick="document.getElementById('profile-image-upload').click()">
                             <input type="file" id="profile-image-upload" accept="image/*" onchange="previewProfilePicture(event)" style="display: none;">
                         </div>
-                        <!-- Username -->
-                        <h3 class="profile-username-value" id="usernameValue"></h3>
+                        <!-- Name -->
+                        <h2 class="profile-name-value" id="headNameValue"></h2>
+                        <!-- Email -->
+                        <h3 class="profile-email-value" id="emailValue"></h3>
                         <!-- Edit profile button -->
                         <button class="edit-profile-btn" onclick="editProfile()">Edit Profile</button>
                     </div>
                     <div class="right-column">
                         <!-- Links/buttons -->
-                        <div class="profile-links">
+                        <div class="profile-links" style="display: none;">
                             <ul>
-                                <li><button class="profile-btn" onclick="">See Matches</button></li>
-                                <li><button class="profile-btn" onclick="">Your Listings</button></li>
+                                <li><button id="seeMatchesButton" onclick="">See Matches</button></li>
                             </ul>
                         </div>
                         <!-- Preferences input fields -->
@@ -239,7 +245,20 @@
                         <div class="profile-info-container">
                             <span class="profile-info-label">Preferred Location:</span>
                             <span class="profile-info-value" id="location-value"></span>
-                            <input type="text" class="profile-input" id="location" placeholder="E.g. Summit Drive">
+                            <select class="profile-input" id="location">
+                                <option value="Any">Any</option>
+                                <option value="Thompson Rivers University">Thompson Rivers University</option>
+                                <option value="City Centre / Downtown">City Centre / Downtown</option>
+                                <option value="Lower Sahali">Lower Sahali</option>
+                                <option value="Upper Sahali">Upper Sahali</option>
+                                <option value="Aberdeen">Aberdeen</option>
+                                <option value="North Shore">North Shore</option>
+                                <option value="Valleyview">Valleyview</option>
+                                <option value="Westsyde">Westsyde</option>
+                                <option value="Brocklehurst">Brocklehurst</option>
+                                <option value="Barnhartvale">Barnhartvale</option>
+                                <option value="Dallas">Dallas</option>
+                            </select>
                         </div>
                         <!-- Pet-Friendly Accommodation -->
                         <div class="profile-info-container">
@@ -254,7 +273,7 @@
                         <!-- Type of Accommodation -->
                         <div class="profile-info-container">
                             <span class="profile-info-label">Type of Accommodation:</span>
-                            <span class="profile-info-value" id="accom-value"></span>
+                            <span class="profile-info-value" id="accomm-value"></span>
                             <input type="text" class="profile-input" id="accommodation-type" placeholder="E.g. 2-Bedroom">
                         </div>
                         <!-- Student Status -->
