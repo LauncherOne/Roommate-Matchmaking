@@ -16,6 +16,26 @@
 </head>
 
 <body>
+    <script>
+        // JavaScript code for sticky navigation
+        window.onscroll = () => stickyNav();
+
+        const navbar = document.querySelector(".sticky-nav");
+        const sticky = navbar.offsetTop;
+
+        const stickyNav = () => window.pageYOffset >= sticky ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+
+        function highlightSignUp() {
+            var signUpButton = document.getElementById("signup_button");
+            signUpButton.style.background = "#eab9e5";
+            signUpButton.style.border = "2px solid blue";
+
+            setTimeout(function () {
+                signUpButton.style = "";
+            }, 2000);
+        }
+    </script>
+
     <nav class="sticky-nav" id="navbar">
         <div class="nav-links" id="navLinks">
             <ul>
@@ -34,7 +54,7 @@
             <h2>
                 <p>A roommate match-making service for TRU students</p>
             </h2>
-            <a href="launcherone_registration.html" class="button1">Sign Up</a>
+            <a href="launcherone_registration.html" class="button1" id="signup_button">Sign Up</a>
             <a href="launcherone_register.html" class="button2">Log In</a>
         </div>
     </section>
@@ -42,47 +62,35 @@
     <!-- Description of the website / About Us Section-->
     <section class="body1" id="about_section">
         <h1>Welcome to the LauncherOne website</h1>
-        <p>Lorem ipsum dat dat dat dat dat dat dat. blah blah blah blah blah</p>
+        <p>LauncherOne is a trusted platform designed to simplify the process of finding compatible roommates for
+            individuals seeking shared accommodation. Our mission is to provide a reliable and accessible solution that
+            connects people based on their preferences and needs.</p>
 
         <div class="row">
             <div class="body-col">
                 <h3>Trustworthy</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                    Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident,sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
+                <p>At LauncherOne, trust is paramount. We understand the importance of security and privacy when it
+                    comes to finding a roommate. That's why we implement stringent verification processes and encryption
+                    protocols to ensure the safety of your personal information. You can trust LauncherOne to provide a
+                    secure environment for your roommate search.</p>
             </div>
             <div class="body-col">
                 <h3>Simple</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                    Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident,sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
+                <p>We believe in keeping things simple and straightforward. LauncherOne's intuitive interface makes it
+                    easy for you to create a profile, specify your preferences, and browse through potential matches.
+                    With just a few clicks, you can find the perfect roommate who shares your lifestyle and living
+                    preferences. Say goodbye to the hassle of searching for roommates and hello to a seamless
+                    roommate-matching experience with LauncherOne.</p>
             </div>
             <div class="body-col">
                 <h3>Accessible</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                    Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident,sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
+                <p>Accessibility is at the core of LauncherOne's mission. We strive to make our platform inclusive and
+                    accessible to all individuals, regardless of their background or circumstances. Our commitment to accessibility ensures that
+                    TRU students can enjoy the benefits of shared living arrangements without barriers.</p>
             </div>
         </div>
     </section>
+
 
     <section class="settingUp" id="getstarted_section">
         <a href="#home" class="button3" onclick="highlightSignUp()">Get Started With Us</a>
