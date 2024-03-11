@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--Comp 3450,  Authors: Oleanna San Antonio, Nilam Rai, Adebayo Jesutofunmi Juliet-->
 <html>
   <head>
     <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
@@ -39,12 +40,7 @@
             placeholder="Re-enter your password"
           />
         </form>
-        <button
-          class="btn1"
-          id="signUpButton"
-        >
-          Sign Up
-        </button>
+        <button class="btn1" id="signUpButton">Sign Up</button>
       </div>
       <!-- Log In form -->
     </section>
@@ -57,6 +53,17 @@
         getAuth,
         createUserWithEmailAndPassword,
       } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -77,6 +84,9 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
+      //reference to real time database
+      const database = getDatabase(app);
+      const db = getFirestore(app);
 
       // Initialize Firebase
       //   const app = initializeApp(firebaseConfig);
@@ -95,59 +105,67 @@
         const signUpUsername = userName.value;
         const signUpPasswordConfirmation = passwordConfirmation.value;
 
-        if(signUpPassword != signUpPasswordConfirmation){
+        if (signUpPassword != signUpPasswordConfirmation) {
           //display an error message if the passwords entered don't match
-          alert("Passwords do not match. Please enter the same passwords in both fields.");
+          alert(
+            "Passwords do not match. Please enter the same passwords in both fields."
+          );
           return; //exit the function
         }
-        
 
-        createUserWithEmailAndPassword(
-          auth,
-          signUpEmail,
-          signUpPassword
-        )
+        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
             alert("Your account has been created!");
+
+            // Save user data to database
+            writeUserData(user.uid, signUpUsername, signUpEmail);
+
+            // Save user data to Firestore
+            addUserToFirestore(user.uid, signUpUsername, signUpEmail);
 
             //displays the next page is the sign-up was successful
             window.location.href = "launcherone_profile.html";
           })
           .catch((error) => {
             console.error("Sign up error: " + error.message);
-            
           });
+
+        console.log("User saved to database");
       };
 
       signUpButton.addEventListener("click", register);
 
-      function togglePasswordVisibility(){
-        var passwordField = document.getElementById("password");
-        var showPasswordCheckBox = document.getElementById("showPassword");
-
-        if(showPasswordCheckBox.checked){
-          passwordField.type = "text";
-        }else{
-          passwordField.type = "password";
-        }
+      //function to write users to database
+      function writeUserData(userId, username, email) {
+        set(ref(database, "users/" + userId), {
+          username: username,
+          email: email,
+        })
+          .then(() => {
+            console.log(
+              "User has been written to realtime database successfully"
+            );
+          })
+          .catch((error) => {
+            console.error("Error writing to realtime database: " + error);
+          });
       }
 
-      //event listener to toggle password visibility
-      document.getElementById("showPassword").addEventListener("change", togglePasswordVisibility);
-
+      function addUserToFirestore(userId, username, email) {
+        addDoc(collection(db, "users"), {
+          userId: userId,
+          username: username,
+          email: email,
+        })
+          .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+          })
+          .catch((error) => {
+            console.error("Error adding document: ", error);
+          });
+      }
     </script>
   </body>
-
-  <!-- <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-    import { Database } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-  </script> -->
-
-  <!-- <script src="launcherone.js"></script> -->
 </html>
