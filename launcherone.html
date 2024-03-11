@@ -34,6 +34,21 @@
                 signUpButton.style = "";
             }, 2000);
         }
+
+        // JavaScript for hover effect
+        const bodyCols = document.querySelector('.body-col');
+
+        bodyCols.forEach(bodyCol => {
+            bodyCol.addEventListener('mouseover', () => {
+                bodyCol.style.background = '#b360aa';
+                bodyCol.style.boxShadow = '0 0 30px rgba(0, 0, 0, 0.3)';
+            });
+
+            bodyCol.addEventListener('mouseout', () => {
+                bodyCol.style.backgroundColor = '';
+                bodyCol.style.boxShadow = '';
+            });
+        });
     </script>
 
     <nav class="sticky-nav" id="navbar">
@@ -85,7 +100,8 @@
             <div class="body-col">
                 <h3>Accessible</h3>
                 <p>Accessibility is at the core of LauncherOne's mission. We strive to make our platform inclusive and
-                    accessible to all individuals, regardless of their background or circumstances. Our commitment to accessibility ensures that
+                    accessible to all individuals, regardless of their background or circumstances. Our commitment to
+                    accessibility ensures that
                     TRU students can enjoy the benefits of shared living arrangements without barriers.</p>
             </div>
         </div>
