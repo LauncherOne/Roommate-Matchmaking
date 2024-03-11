@@ -17,6 +17,99 @@ function highlightSignUp() {
 }
 
 /* Profile JS */
+function editProfile() {
+    var profileInputs = document.querySelectorAll('.profile-input');
+    var profileValues = document.querySelectorAll('.profile-info-value');
+    var saveButton = document.querySelector('.saveButton');
+    var editProfileButton = document.querySelector('.edit-profile-btn');
+
+    if (profileInputs[0].style.display === "none") {
+        // Switch to edit mode
+        profileInputs.forEach(input => input.style.display = "inline");
+        profileValues.forEach(value => value.style.display = "none");
+        saveButton.style.display = "block";
+        editProfileButton.style.display  = "none";
+    } else {
+        // Switch back to display mode
+        profileInputs.forEach(input => input.style.display = "none");
+        profileValues.forEach(value => value.style.display = "inline");
+        saveButton.style.display = "none";
+        editProfileButton.style.display  = "block";
+    }
+}
+
+function previewProfilePicture(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+        var output = document.getElementById('profile-image-preview');
+        output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+function saveProfile() {
+    console.log("Save profiel in js called");
+    var profileInputs = document.querySelectorAll('.profile-input');
+    var profileValues = document.querySelectorAll('.profile-info-value');
+    var saveButton = document.querySelector('.saveButton');
+    var editProfileButton = document.querySelector('.edit-profile-btn');
+
+    var name = $('#name').val();
+    var bio = $('#bio').val();
+    var age = $('#age').val();
+    var universityYear = $('#university-year').val();
+    var gender = $('#gender').val();
+    var roommatePreference = $('#roommate-preference').val();
+    var location = $('#location').val();
+    var petFriendly = $('#pet-friendly').val();
+    var accommodationType = $('#accommodation-type').val();
+    var studentStatus = $('#student-status').val();
+    var minBudget = $('#minBudget').val();
+    var maxBudget = $('#maxBudget').val();
+
+    $(document).ready(function() {
+        // Retrieve values from input fields
+    
+        // Set innerHTML of corresponding elements
+        $('#name-value').text(name);
+        $('#bio-value').text(bio);
+        $('#age-value').text(age);
+        $('#year-value').text(universityYear);
+        $('#gender-value').text(gender);
+        $('#roommate-value').text(roommatePreference);
+        $('#location-value').text(location);
+        $('#pet-value').text(petFriendly);
+        $('#accomm-value').text(accommodationType);
+        $('#student-value').text(studentStatus);
+        $('#minBudget-value').text(minBudget);
+        $('#maxBudget-value').text(maxBudget);
+    });
+    
+
+    // Check if any of the input fields are empty
+    if (
+        !name || !bio || !age || !universityYear || !gender || !roommatePreference || 
+        !location || !petFriendly || !accommodationType || !studentStatus || !minBudget || !maxBudget
+    ) {
+        // If any field is empty, show an alert and return early
+        alert("Please fill in all input fields.");
+        return;
+    }
+
+    if (profileInputs[0].style.display === "none") {
+        // Switch to edit mode
+        profileInputs.forEach(input => input.style.display = "inline");
+        profileValues.forEach(value => value.style.display = "none");
+        saveButton.style.display = "block";
+        editProfileButton.style.display  = "none";
+    } else {
+        // Switch back to display mode
+        profileInputs.forEach(input => input.style.display = "none");
+        profileValues.forEach(value => value.style.display = "inline");
+        saveButton.style.display = "none";
+        editProfileButton.style.display  = "block";
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     const listingsSection = document.querySelector(".view-listings");
