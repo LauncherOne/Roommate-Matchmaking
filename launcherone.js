@@ -163,3 +163,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+
+//js code for chat functionality
+
+
