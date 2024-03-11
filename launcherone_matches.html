@@ -20,7 +20,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+        import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -67,7 +67,7 @@
                                         otherUser.preferredLocation === preferredLocation &&
                                         userId !== user.uid
                                     ) {
-                                        console.log("Found a match:", otherUser);
+                                        //console.log("Found a match:", otherUser);
 
                                         // Inject other user's data into profile elements
                                         document.getElementById('profile-name').innerHTML = otherUser.name;
@@ -103,6 +103,47 @@
         setTimeout(() => {
             matchHeaderWrapper.style.display = 'none';
         }, 2000);
+
+        // Add event listener to accept button
+        document.querySelector('.accept-button').addEventListener('click', function () {
+            // Code to add the other user to the chat list and redirect to chat page
+            //console.log("Accepted");
+            // Redirect to chat page
+            window.location.href = "launcherone_chat.html";
+        });
+
+        // Add event listener to decline button
+        document.querySelector('.delete-button').addEventListener('click', function () {
+            // Get the currently logged-in user's UID
+            const currentUser = auth.currentUser;
+            if (currentUser) {
+                const userUid = currentUser.uid;
+
+                // Reference to the match data for the current user
+                const matchRef = ref(database, `matches/${userUid}`);
+
+                // Remove the match data for the current user
+                remove(matchRef)
+                    .then(() => {
+                        console.log('Match deleted for user:', userUid);
+                        // Update match header and hide match container
+                        matchHeaderWrapper.style.display = 'flex';
+                        document.querySelector('.match-header').innerHTML = "We found no matches for you";
+                        setTimeout(() => {
+                            matchHeaderWrapper.style.display = 'none';
+                        }, 2000);
+                        
+                        document.querySelector('.match-container').style.display = 'none';
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting match:', error);
+                    });
+            } else {
+                console.log('No user signed in');
+                // Handle case where no user is signed in
+            }
+        });
+
     </script>
 
     <header class="head">
@@ -132,4 +173,4 @@
     </div>
 </body>
 
-</html
+</html>
