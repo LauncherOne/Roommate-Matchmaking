@@ -1,121 +1,110 @@
 <!DOCTYPE html>
 <!--Comp 3450,  Authors: Oleanna San Antonio, Nilam Rai, Adebayo Jesutofunmi Juliet-->
 <html>
-  <head>
-    <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
-    <title>Roommate Match-Making Website</title>
-    <link rel="stylesheet" href="launcherone.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
-    />
-  </head>
 
-  <body>
-    <header class="head1">
-      <h1>
-        <img
-          src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png"
-          alt=""
-        />LAUNCHER-ONE
-      </h1>
-    </header>
-    <section class="section2">
-      <!-- Log In form -->
-      <div class="form2" id="logInForm">
-        <h2>Log In Here</h2>
-        <input type="email" id="logInEmail" placeholder="Enter Email Here" />
-        <input
-          type="password"
-          id="logInPassword"
-          placeholder="Enter your Password"
-        />
-        <button
-          class="btn2"
-          id="logInButton"
-        >
-          Log In
-        </button>
-        <p class="stuff">Forgot your password?</p>
-      </div>
-    </section>
+<head>
+  <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
+  <title>Roommate Match-Making Website</title>
+  <link rel="stylesheet" href="launcherone.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" />
+</head>
 
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+<body>
+  <header class="head1">
+    <h1>
+      <img src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png" alt="" />LAUNCHER-ONE
+    </h1>
+  </header>
+  <section class="section2">
+    <!-- Log In form -->
+    <div class="form2" id="logInForm">
+      <h2>Log In Here</h2>
+      <input type="email" id="logInEmail" placeholder="Enter Email Here" />
+      <input type="password" id="logInPassword" placeholder="Enter your Password" />
+      <button class="btn2" id="logInButton">
+        Log In
+      </button>
+      <p class="stuff">Forgot your password?</p>
+    </div>
+  </section>
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
-        authDomain: "roommate-match-making.firebaseapp.com",
-        databaseURL:
-          "https://roommate-match-making-default-rtdb.firebaseio.com",
-        projectId: "roommate-match-making",
-        storageBucket: "roommate-match-making.appspot.com",
-        messagingSenderId: "1086011648278",
-        appId: "1:1086011648278:web:a37275f476af35c2fc8837",
-        measurementId: "G-03Y8JYTZS5",
-      };
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
+      authDomain: "roommate-match-making.firebaseapp.com",
+      databaseURL:
+        "https://roommate-match-making-default-rtdb.firebaseio.com",
+      projectId: "roommate-match-making",
+      storageBucket: "roommate-match-making.appspot.com",
+      messagingSenderId: "1086011648278",
+      appId: "1:1086011648278:web:a37275f476af35c2fc8837",
+      measurementId: "G-03Y8JYTZS5",
+    };
 
-      // Initialize Firebase
-      //   const app = initializeApp(firebaseConfig);
-      //   const auth = getAuth(app);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-      const userEmail = document.querySelector("#logInEmail");
-      const userPassword = document.querySelector("#logInPassword");
-      const authForm = document.querySelector("#logInForm");
-      const signInButton = document.querySelector("#logInButton");
+    // Initialize Firebase
+    //   const app = initializeApp(firebaseConfig);
+    //   const auth = getAuth(app);
 
-      const logIn = async () => {
-        const logInEmail = userEmail.value;
-        const logInPassword = userPassword.value;
+    const userEmail = document.querySelector("#logInEmail");
+    const userPassword = document.querySelector("#logInPassword");
+    const authForm = document.querySelector("#logInForm");
+    const signInButton = document.querySelector("#logInButton");
 
-        signInWithEmailAndPassword(auth, logInEmail, logInPassword)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log("You have signed in successfully", user);
-            alert("You have successfully logged in");
+    const logIn = async () => {
+      const logInEmail = userEmail.value;
+      const logInPassword = userPassword.value;
 
-            //redirects the user to the next pageupon successful login
+      signInWithEmailAndPassword(auth, logInEmail, logInPassword)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("You have signed in successfully", user);
+          alert("You have successfully logged in");
 
-            window.location.href = "launcherone_profile.html";
-          })
-          .catch((error) => {
-            console.error("Login error: " + error.message);
+          //redirects the user to the next pageupon successful login
 
-            //displays a message that the login was unsuccessful
-            alert("Login unsuccessful. Please try again.");
+          window.location.href = "launcherone_profile.html";
+        })
+        .catch((error) => {
+          console.error("Login error: " + error.message);
 
-            //checks if the error is due to user not found
-            if(errorCode === 'auth-user-not-found'){
-              //alerts the user that the email entered is incorrect
-              alert("Email not found. Please enter a valid email!");
-            }
-            else{
-              alert(error.message);
-            }
-          });
-      };
+          //displays a message that the login was unsuccessful
+          alert("Login unsuccessful. Please try again.");
 
-      signInButton.addEventListener("click", logIn);
-    </script>
-  </body>
+          //checks if the error is due to user not found
+          if (errorCode === 'auth-user-not-found') {
+            //alerts the user that the email entered is incorrect
+            alert("Email not found. Please enter a valid email!");
+          }
+          else {
+            alert(error.message);
+          }
+        });
+    };
+
+    signInButton.addEventListener("click", logIn);
+  </script>
+</body>
+
 </html>

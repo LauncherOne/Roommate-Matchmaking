@@ -1,14 +1,14 @@
 /* Comp 3450, Authors: Oleanna San Antonio, Nilam Rai, Adebayo Jesutofunmi Juliet*/
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
-.header{
+.header {
     min-height: 100vh;
-    width:100%;
+    width: 100%;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -67,14 +67,14 @@ nav {
 
     .nav-links {
         position: absolute;
-        background: rgba(244, 244, 244, 0.9); 
-        height: 50px; 
+        background: rgba(244, 244, 244, 0.9);
+        height: 50px;
         width: 100%;
         top: 0;
         left: 0;
         text-align: left;
         z-index: 2;
-        padding: 10px 6%; 
+        padding: 10px 6%;
     }
 
     nav .fa-fa-times,
@@ -95,10 +95,10 @@ nav {
 .sticky-nav {
     position: sticky;
     top: 0;
-    background-color: rgba(244, 244, 244, 0.9); 
-    z-index: 1000; 
-    height: 40px; 
-    border-bottom: 1px solid #ddd; 
+    background-color: rgba(244, 244, 244, 0.9);
+    z-index: 1000;
+    height: 40px;
+    border-bottom: 1px solid #ddd;
 }
 
 .sticky-nav ul {
@@ -124,7 +124,7 @@ nav {
 }
 
 .sticky-nav ul li a:hover {
-    background-color: #878fd7; 
+    background-color: #878fd7;
     color: white;
 }
 
@@ -144,7 +144,7 @@ nav {
 
 .text-box h2 {
     text-align: center;
-    display: block; 
+    display: block;
     width: auto;
 }
 
@@ -184,26 +184,26 @@ nav {
     transition: 1s;
 }
 
-.settingUp{
+.settingUp {
     text-align: center;
 }
 
-.button3{
-    display:inline-block;
+.button3 {
+    display: inline-block;
     text-decoration: none;
-    border:1px solid black;
+    border: 1px solid black;
     border-radius: 8px;
-    padding:12px 34px;
+    padding: 12px 34px;
     font-size: 13px;
-    color:black;
+    color: black;
     position: relative;
-    cursor:pointer;
+    cursor: pointer;
     margin: 50px 0 40px;
     padding: 20px;
 }
 
-.button3:hover{
-    border:1px solid black;
+.button3:hover {
+    border: 1px solid black;
     background: #eab9e5;
     transition: 1s;
 }
@@ -265,7 +265,7 @@ h3 {
 
 /* Contact Section */
 .contact {
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;
     padding: 30px 0;
     text-align: center;
     margin-top: 20px;
@@ -280,7 +280,7 @@ h3 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
-    display: inline-block; 
+    display: inline-block;
     width: auto;
 }
 
@@ -290,66 +290,66 @@ h3 {
 }
 
 /* CSS Styles for the home page*/
-header{
+header {
     min-height: 20px;
-    width:100%;
+    width: 100%;
     background-position: center;
     text-align: center;
     background-size: cover;
     position: relative;
 }
 
-header img{
+header img {
     padding-top: 20px;
     display: inline-block;
 }
 
-header h1{
+header h1 {
     background-color: #878fd7;
-    color:white;
+    color: white;
 }
 
 /*CSS Styles for the sign-up page*/
-header.head{
+header.head {
     min-height: 20px;
-    width:100%; 
+    width: 100%;
     background-position: center;
     text-align: center;
     background-size: cover;
     position: relative;
 }
 
-header.head h1{
+header.head h1 {
     background-color: #878fd7;
-    color:white;
+    color: white;
 }
 
-.form1{
-    width:250px;
-    height:380px;
+.form1 {
+    width: 250px;
+    height: 380px;
     position: absolute;
-    border:2px solid black;
+    border: 2px solid black;
     border-radius: 10px;
     padding: 25px;
-    transform: translate(-50%,-50%);
-    }
+    transform: translate(-50%, -50%);
+}
 
-.form1 h2{
-    width:220px;
-    font-family: 'Poppins',sans-serif;
+.form1 h2 {
+    width: 220px;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     font-size: 22px;
     background-color: #eab9e5;
-    color:black;
+    color: black;
     border-radius: 10px;
     margin: 2px;
-    padding:8px;
-     background-color: #eab9e5;
+    padding: 8px;
+    background-color: #eab9e5;
 }
 
 
-.form1 input{
-    width:240px;
+.form1 input {
+    width: 240px;
     height: 35px;
     background: transparent;
     border-bottom: 1px solid #eab9e5;
@@ -363,41 +363,41 @@ header.head h1{
     font-family: 'Poppins', sans-serif;
 }
 
-.form1 input:focus{
-    outline:none;
+.form1 input:focus {
+    outline: none;
 
 }
 
-::placeholder{
-    color:black;
+::placeholder {
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn1{
-    width:180px;
-    height:40px;
+.btn1 {
+    width: 180px;
+    height: 40px;
     background: #878fd7;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
     margin-top: 30px;
-    margin-left:30px;
-    margin-right:30px;
+    margin-left: 30px;
+    margin-right: 30px;
     margin-bottom: 40px;
-    font-size:18px;
+    font-size: 18px;
     border-radius: 10px;
 }
 
-.btn1 a{
+.btn1 a {
     text-decoration: none;
     text-align: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn1:hover{
+.btn1:hover {
     background: #eab9e5;
-    color:black;
+    color: black;
 }
 
 
@@ -421,36 +421,38 @@ header.head h1{
 }
 
 .profile-name-value {
-    margin: auto; 
+    margin: auto;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .profile-email-value {
-    margin: auto; 
+    margin: auto;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .left-column {
-    width: 30%; 
+    width: 30%;
     text-align: center;
     padding: 20px;
 }
 
 .right-column {
-    width: 70%; 
+    width: 70%;
     padding: 20px;
 }
 
 .profile-picture img {
     width: 350px;
-    height: 350px; 
+    height: 350px;
     border-radius: 50%;
     margin-bottom: 20px;
 }
 
-h2, .bio, .edit-profile-btn {
+h2,
+.bio,
+.edit-profile-btn {
     margin-bottom: 15px;
     width: 350px;
     text-align: center;
@@ -495,12 +497,13 @@ h2, .bio, .edit-profile-btn {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Use flexbox */
+    display: flex;
+    /* Use flexbox */
     margin-bottom: 20px;
 }
 
 .profile-links ul li {
-    flex-grow: 1; 
+    flex-grow: 1;
     margin-right: 10px;
 }
 
@@ -509,7 +512,7 @@ h2, .bio, .edit-profile-btn {
 }
 
 .profile-links ul li button {
-    width: 100%; 
+    width: 100%;
     padding: 10px 20px;
     background-color: #878fd7;
     color: white;
@@ -598,46 +601,46 @@ h2, .bio, .edit-profile-btn {
 
 /* CSS styles for login page*/
 
-header.head1{
+header.head1 {
     min-height: 120vh;
-    width:100%; 
+    width: 100%;
     background-position: center;
     text-align: center;
     background-size: cover;
     position: relative;
 }
 
-header.head1 h1{
+header.head1 h1 {
     background-color: #878fd7;
-    color:white;
+    color: white;
 }
 
-.form2{
-    width:250px;
-    height:380px;
+.form2 {
+    width: 250px;
+    height: 380px;
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     border: 2px solid black;
     border-radius: 10px;
     padding: 25px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.form2 h2{
-    width:220px;
-    font-family: 'Poppins',sans-serif;
+.form2 h2 {
+    width: 220px;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
-    color:black;
+    color: black;
     font-size: 22px;
     background-color: #eab9e5;
     border-radius: 10px;
     margin: 2px;
-    padding:8px;
+    padding: 8px;
 }
 
-.form2 input{
-    width:240px;
+.form2 input {
+    width: 240px;
     height: 35px;
     background: transparent;
     border-bottom: 1px solid #eab9e5;
@@ -651,47 +654,47 @@ header.head1 h1{
     font-family: 'Poppins', sans-serif;
 }
 
-.form2 input:focus{
-    outline:none;
+.form2 input:focus {
+    outline: none;
 
 }
 
-::placeholder{
-    color:black;
+::placeholder {
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn2{
-    width:180px;
-    height:40px;
+.btn2 {
+    width: 180px;
+    height: 40px;
     background: #878fd7;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     border: none;
     margin-top: 50px;
-    margin-left:30px;
-    margin-right:30px;
+    margin-left: 30px;
+    margin-right: 30px;
     margin-bottom: 20px;
-    font-size:18px;
+    font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
 }
 
-.btn2 a{
+.btn2 a {
     text-decoration: none;
     text-align: center;
-    color:white;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn2:hover{
+.btn2:hover {
     background: #eab9e5;
-    color:black;
+    color: black;
 }
 
-.stuff{
-    text-align:center;
+.stuff {
+    text-align: center;
 }
 
 /*Responsive layout for columns and registration page*/
@@ -701,19 +704,19 @@ header.head1 h1{
     .form1 {
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 
-    .form2  {
+    .form2 {
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 }
 
 /*CSS styles for settings page*/
 
-.section1{
+.section1 {
     top: 50%;
     left: 50%;
     position: absolute;
@@ -724,33 +727,34 @@ header.head1 h1{
     color:white;
 } */
 
-.Headd h2{ 
+.Headd h2 {
     background-color: #878fd7;
     width: 100%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #0c0c0c;
-    padding-top: .5em; 
+    padding-top: .5em;
     padding-bottom: .5em;
-   }
+}
 
-.head11{
+.head11 {
     min-height: 120vh;
-    width:100%;
+    width: 100%;
     background-position: center;
     text-align: center;
     background-size: cover;
     position: relative;
 }
 
-.head11 img{
+.head11 img {
     padding-top: 20px;
     display: inline-block;
 }
 
-.head11 h1{
+.head11 h1 {
     background-color: #878fd7;
-    color:white;
+    color: white;
 }
+
 /* body{
     justify-content: center;
 } */
@@ -760,15 +764,18 @@ header.head1 h1{
     /* align-items: center; */
     margin-bottom: 20px;
 }
+
 .settings img {
     width: 32px;
     height: 32px;
     margin-right: 10px;
 }
+
 .settings a {
     text-decoration: none;
     color: #333;
 }
+
 .settings span:hover {
     color: #3444d2;
 }
@@ -780,50 +787,54 @@ header.head1 h1{
     align-items: center;
     margin-bottom: 20px;
 }
-.settings1 a{
+
+.settings1 a {
     text-decoration: none;
     color: #333;
 }
-.settings1 span{
+
+.settings1 span {
     color: #f53333;
 }
-.settings1 span:hover{
+
+.settings1 span:hover {
     color: rgb(5, 62, 15);
 }
 
 .settings {
-    border: 2px solid black; 
-    padding: 20px; 
-    width: 300px; 
-    margin: 0 auto; 
+    border: 2px solid black;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
 }
+
 .settings1 {
-    border: 2px solid black; 
-    padding: 20px; 
-    width: 300px; 
-    margin: 0 auto; 
+    border: 2px solid black;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
 }
 
 /* Create Listing Section Styles */
 .create-listing {
     text-align: center;
     margin-bottom: 40px;
-    width: 80%; 
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px; 
+    margin-top: 30px;
 }
 
 
 .create-listing h2 {
     color: #878fd7;
     margin-bottom: 20px;
-    text-align: center; 
-    width: 100%; 
+    text-align: center;
+    width: 100%;
 }
 
 #create-listing-form {
-    max-width: 100%; 
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -874,7 +885,7 @@ header.head1 h1{
 .view-listings {
     text-align: center;
     margin-bottom: 40px;
-    width: 80%; 
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -883,8 +894,8 @@ header.head1 h1{
 .view-listings h2 {
     color: #878fd7;
     margin-bottom: 20px;
-    text-align: center; 
-    width: 100%; 
+    text-align: center;
+    width: 100%;
 }
 
 .view-listings .listing {
@@ -916,7 +927,7 @@ header.head1 h1{
     cursor: pointer;
     width: 20%;
     transition: background-color 0.3s ease;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .view-listings .edit-listing-btn:hover,
@@ -962,7 +973,7 @@ header.head1 h1{
 .chat-area {
     flex: 2;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .chat-area h2 {
@@ -974,15 +985,15 @@ header.head1 h1{
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    height: calc(100vh - 270px); 
+    height: calc(100vh - 270px);
     overflow-y: auto;
-    flex-grow: 1; /
+    flex-grow: 1;/
 }
 
 #message-form {
     display: flex;
     align-items: center;
-    padding-top: 10px; 
+    padding-top: 10px;
 }
 
 #message-input {
@@ -1016,15 +1027,17 @@ header.head1 h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999; /* Ensure it's above other content */
-    background-color: rgba(211, 211, 211, 0.5); /* Transparent light grey background */
+    z-index: 999;
+    /* Ensure it's above other content */
+    background-color: rgba(211, 211, 211, 0.5);
+    /* Transparent light grey background */
 }
 
 .match-header {
     font-size: 30px;
     font-weight: bold;
-    color: #333; 
-    text-align: center; 
+    color: #333;
+    text-align: center;
     padding: 15px;
     border-radius: 10px;
 
@@ -1053,7 +1066,7 @@ header.head1 h1{
 }
 
 #profile-image {
-    width: 90%; 
+    width: 90%;
     border-radius: 20px;
     padding: 10px;
 }
@@ -1066,7 +1079,7 @@ header.head1 h1{
 #profile-name {
     font-size: 24px;
     margin: auto;
-    text-align: center; 
+    text-align: center;
     color: #333;
 }
 

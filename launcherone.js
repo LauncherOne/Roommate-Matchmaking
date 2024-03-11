@@ -8,12 +8,12 @@ const stickyNav = () => window.pageYOffset >= sticky ? navbar.classList.add("sti
 
 function highlightSignUp() {
     var signUpButton = document.getElementById("signup_button");
-    signUpButton.style.background = "#eab9e5"; 
-    signUpButton.style.border = "2px solid blue"; 
+    signUpButton.style.background = "#eab9e5";
+    signUpButton.style.border = "2px solid blue";
 
     setTimeout(function () {
-        signUpButton.style = ""; 
-    }, 3000); 
+        signUpButton.style = "";
+    }, 3000);
 }
 
 /* Profile JS */
@@ -28,13 +28,13 @@ function editProfile() {
         profileInputs.forEach(input => input.style.display = "inline");
         profileValues.forEach(value => value.style.display = "none");
         saveButton.style.display = "block";
-        editProfileButton.style.display  = "none";
+        editProfileButton.style.display = "none";
     } else {
         // Switch back to display mode
         profileInputs.forEach(input => input.style.display = "none");
         profileValues.forEach(value => value.style.display = "inline");
         saveButton.style.display = "none";
-        editProfileButton.style.display  = "block";
+        editProfileButton.style.display = "block";
     }
 }
 
@@ -49,7 +49,7 @@ function previewProfilePicture(event) {
 
 /* Create and View Listing JS -- will not be used in alpha prototype */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const listingsSection = document.querySelector(".view-listings");
     const createListingSection = document.querySelector(".create-listing");
 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const deleteListingBtns = document.querySelectorAll(".delete-listing-btn");
     deleteListingBtns.forEach(btn => {
-        btn.addEventListener("click", function() {
+        btn.addEventListener("click", function () {
             // Remove the listing from the UI
             btn.parentNode.remove();
 
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const createListingForm = document.getElementById("listing-form");
-    createListingForm.addEventListener("submit", function(event) {
+    createListingForm.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission
 
         // Extract image and description inputs
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Handle click on "Edit" button
-    listingsSection.addEventListener("click", function(event) {
+    listingsSection.addEventListener("click", function (event) {
         if (event.target.classList.contains("edit-listing-btn")) {
             // Find the listing container
             const listingContainer = event.target.closest(".listing");
@@ -144,13 +144,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* CHAT JS */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const messageForm = document.getElementById("message-form");
     const messageInput = document.getElementById("message-input");
     const messages = document.getElementById("messages");
 
     // Function to handle message submission
-    messageForm.addEventListener("submit", function(event) {
+    messageForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const message = messageInput.value.trim();
         if (message !== "") {

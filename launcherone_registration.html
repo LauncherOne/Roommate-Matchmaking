@@ -1,171 +1,163 @@
 <!DOCTYPE html>
 <!--Comp 3450,  Authors: Oleanna San Antonio, Nilam Rai, Adebayo Jesutofunmi Juliet-->
 <html>
-  <head>
-    <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
-    <title>Roommate Match-Making Website</title>
-    <link rel="stylesheet" href="launcherone.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"
-    />
-  </head>
 
-  <body>
-    <header class="head">
-      <h1>
-        <img
-          src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png"
-          alt=""
-        />LAUNCHER-ONE
-      </h1>
-    </header>
-    <!-- Sign up form -->
-    <section class="section1">
-      <div class="form1" id="signUpForm">
-        <h2>Sign up Here</h2>
-        <form>
-          <input type="email" id="email" placeholder="Enter Email Here" />
-          <input type="text" id="username" placeholder="Enter a Username" />
-          <input type="text" id="password" placeholder="Create a Password" />
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Re-enter your password"
-          />
-        </form>
-        <button class="btn1" id="signUpButton">Sign Up</button>
-      </div>
-      <!-- Log In form -->
-    </section>
+<head>
+  <meta name="viewport" content="with = device-width, initial-scale = 1.0" />
+  <title>Roommate Match-Making Website</title>
+  <link rel="stylesheet" href="launcherone.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" />
+</head>
 
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-      import {
-        getAuth,
-        createUserWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-      import {
-        getDatabase,
-        ref,
-        set,
-      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-      import {
-        getFirestore,
-        collection,
-        addDoc,
-      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+<body>
+  <header class="head">
+    <h1>
+      <img src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png" alt="" />LAUNCHER-ONE
+    </h1>
+  </header>
+  <!-- Sign up form -->
+  <section class="section1">
+    <div class="form1" id="signUpForm">
+      <h2>Sign up Here</h2>
+      <form>
+        <input type="email" id="email" placeholder="Enter Email Here" />
+        <input type="text" id="username" placeholder="Enter a Username" />
+        <input type="text" id="password" placeholder="Create a Password" />
+        <input type="password" id="confirmPassword" placeholder="Re-enter your password" />
+      </form>
+      <button class="btn1" id="signUpButton">Sign Up</button>
+    </div>
+    <!-- Log In form -->
+  </section>
 
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+    import {
+      getDatabase,
+      ref,
+      set,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
-        authDomain: "roommate-match-making.firebaseapp.com",
-        databaseURL:
-          "https://roommate-match-making-default-rtdb.firebaseio.com",
-        projectId: "roommate-match-making",
-        storageBucket: "roommate-match-making.appspot.com",
-        messagingSenderId: "1086011648278",
-        appId: "1:1086011648278:web:a37275f476af35c2fc8837",
-        measurementId: "G-03Y8JYTZS5",
-      };
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      //reference to real time database
-      const database = getDatabase(app);
-      const db = getFirestore(app);
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
+      authDomain: "roommate-match-making.firebaseapp.com",
+      databaseURL:
+        "https://roommate-match-making-default-rtdb.firebaseio.com",
+      projectId: "roommate-match-making",
+      storageBucket: "roommate-match-making.appspot.com",
+      messagingSenderId: "1086011648278",
+      appId: "1:1086011648278:web:a37275f476af35c2fc8837",
+      measurementId: "G-03Y8JYTZS5",
+    };
 
-      // Initialize Firebase
-      //   const app = initializeApp(firebaseConfig);
-      //   const auth = getAuth(app);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    //reference to real time database
+    const database = getDatabase(app);
+    const db = getFirestore(app);
 
-      const userEmail = document.querySelector("#email");
-      const userPassword = document.querySelector("#password");
-      const userName = document.querySelector("#username");
-      const passwordConfirmation = document.querySelector("#confirmPassword");
-      const authForm = document.querySelector("#signUpForm");
-      const signUpButton = document.querySelector("#signUpButton");
+    // Initialize Firebase
+    //   const app = initializeApp(firebaseConfig);
+    //   const auth = getAuth(app);
 
-      const register = async () => {
-        const signUpEmail = userEmail.value;
-        const signUpPassword = userPassword.value;
-        const signUpUsername = userName.value;
-        const signUpPasswordConfirmation = passwordConfirmation.value;
+    const userEmail = document.querySelector("#email");
+    const userPassword = document.querySelector("#password");
+    const userName = document.querySelector("#username");
+    const passwordConfirmation = document.querySelector("#confirmPassword");
+    const authForm = document.querySelector("#signUpForm");
+    const signUpButton = document.querySelector("#signUpButton");
 
-        if (signUpPassword != signUpPasswordConfirmation) {
-          //display an error message if the passwords entered don't match
-          alert(
-            "Passwords do not match. Please enter the same passwords in both fields."
+    const register = async () => {
+      const signUpEmail = userEmail.value;
+      const signUpPassword = userPassword.value;
+      const signUpUsername = userName.value;
+      const signUpPasswordConfirmation = passwordConfirmation.value;
+
+      if (signUpPassword != signUpPasswordConfirmation) {
+        //display an error message if the passwords entered don't match
+        alert(
+          "Passwords do not match. Please enter the same passwords in both fields."
+        );
+        return; //exit the function
+      }
+
+      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          alert("Your account has been created!");
+
+          // Save user data to database
+          writeUserData(user.uid, signUpUsername, signUpEmail);
+
+          // Save user data to Firestore
+          addUserToFirestore(user.uid, signUpUsername, signUpEmail);
+
+          //displays the next page is the sign-up was successful
+          window.location.href = "launcherone_profile.html";
+        })
+        .catch((error) => {
+          console.error("Sign up error: " + error.message);
+        });
+
+      console.log("User saved to database");
+    };
+
+    signUpButton.addEventListener("click", register);
+
+    //function to write users to database
+    function writeUserData(userId, username, email) {
+      set(ref(database, "users/" + userId), {
+        username: username,
+        email: email,
+      })
+        .then(() => {
+          console.log(
+            "User has been written to realtime database successfully"
           );
-          return; //exit the function
-        }
-
-        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user);
-            alert("Your account has been created!");
-
-            // Save user data to database
-            writeUserData(user.uid, signUpUsername, signUpEmail);
-
-            // Save user data to Firestore
-            addUserToFirestore(user.uid, signUpUsername, signUpEmail);
-
-            //displays the next page is the sign-up was successful
-            window.location.href = "launcherone_profile.html";
-          })
-          .catch((error) => {
-            console.error("Sign up error: " + error.message);
-          });
-
-        console.log("User saved to database");
-      };
-
-      signUpButton.addEventListener("click", register);
-
-      //function to write users to database
-      function writeUserData(userId, username, email) {
-        set(ref(database, "users/" + userId), {
-          username: username,
-          email: email,
         })
-          .then(() => {
-            console.log(
-              "User has been written to realtime database successfully"
-            );
-          })
-          .catch((error) => {
-            console.error("Error writing to realtime database: " + error);
-          });
-      }
+        .catch((error) => {
+          console.error("Error writing to realtime database: " + error);
+        });
+    }
 
-      function addUserToFirestore(userId, username, email) {
-        addDoc(collection(db, "users"), {
-          userId: userId,
-          username: username,
-          email: email,
+    function addUserToFirestore(userId, username, email) {
+      addDoc(collection(db, "users"), {
+        userId: userId,
+        username: username,
+        email: email,
+      })
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
         })
-          .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-          })
-          .catch((error) => {
-            console.error("Error adding document: ", error);
-          });
-      }
-    </script>
-  </body>
+        .catch((error) => {
+          console.error("Error adding document: ", error);
+        });
+    }
+  </script>
+</body>
+
 </html>
