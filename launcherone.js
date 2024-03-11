@@ -164,8 +164,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/* SETTINGS JS */
 
+function toggleFAQ() {
+    var faqSection = document.getElementById("faq-section");
+    var faqLink = document.getElementById("faq-link");
+    var section1 = document.getElementById("section1");
 
+    if (faqSection.style.display === "none") {
+        faqSection.style.display = "block";
+        section1.classList.add("expanded");
+        faqLink.classList.add("expanded");
+    } else {
+        faqSection.style.display = "none";
+        section1.classList.remove("expanded");
+        faqLink.classList.remove("expanded");
+    }
+}
 
 //js code for chat functionality
 

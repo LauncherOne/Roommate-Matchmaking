@@ -327,6 +327,8 @@ header.head h1 {
 .form1 {
     width: 250px;
     height: 380px;
+    top: 50%;
+    left: 50%;
     position: absolute;
     border: 2px solid black;
     border-radius: 10px;
@@ -714,61 +716,56 @@ header.head1 h1 {
     }
 }
 
-/*CSS styles for settings page*/
-
-.section1 {
-    top: 50%;
-    left: 50%;
-    position: absolute;
+.Headd {
+    width: 100%;
+    text-align: center;
 }
-
-/* .secc h2{
-    background-color: #878fd7;
-    color:white;
-} */
 
 .Headd h2 {
-    background-color: #878fd7;
-    width: 100%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #0c0c0c;
-    padding-top: .5em;
-    padding-bottom: .5em;
-}
-
-.head11 {
-    min-height: 120vh;
-    width: 100%;
-    background-position: center;
+    color: #333;
+    margin: auto;
+    padding: 30px;
     text-align: center;
-    background-size: cover;
-    position: relative;
 }
 
-.head11 img {
-    padding-top: 20px;
-    display: inline-block;
-}
-
-.head11 h1 {
-    background-color: #878fd7;
-    color: white;
-}
-
-/* body{
-    justify-content: center;
-} */
-.settings {
+.section11 {
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 7%;
+    transition: width 0.3s ease-in-out; /* Added transition */
 }
 
-.settings img {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
+.section11.expanded {
+    width: 60%; /* Increase width when expanded */
+}
+
+.settings {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.settings.expanded {
+    width: 700px; /* Increase width when expanded */
+}
+
+.settings:hover {
+    transform: translateY(-5px);
 }
 
 .settings a {
@@ -776,44 +773,69 @@ header.head1 h1 {
     color: #333;
 }
 
-.settings span:hover {
-    color: #3444d2;
+.settings a:hover {
+    color: #808080;
 }
 
-/* style for delete option */
-.settings1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.settings1 a {
-    text-decoration: none;
+.settings span {
+    font-weight: bold;
+    font-size: 18px;
     color: #333;
 }
 
-.settings1 span {
+#logout-link span {
+    color: #333;
+}
+
+#delete-account-link span {
     color: #f53333;
 }
 
-.settings1 span:hover {
-    color: rgb(5, 62, 15);
+.settings:hover {
+    background-color: #f9f9f9;
 }
 
-.settings {
-    border: 2px solid black;
+.faq-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px;
-    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: none; /* Initially hidden */
+    transition: width 0.3s ease-in-out; /* Added transition */
 }
 
-.settings1 {
-    border: 2px solid black;
-    padding: 20px;
-    width: 300px;
-    margin: 0 auto;
+.faq-section.expanded {
+    display: block; /* Show when expanded */
 }
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    margin-top: 5px;
+}
+
+/* Styling for FAQ button */
+.faq-button {
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
 
 /* Create Listing Section Styles */
 .create-listing {

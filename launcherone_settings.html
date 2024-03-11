@@ -16,46 +16,128 @@
 </head>
 
 <body>
-    <section class="head11">
-        <h1><img src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png" alt="">LAUNCHER-ONE</h1>
-    </section>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
-    <header class="Headd">
-        <h2>Settings</h2>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCBY5xCnq3BMN__V6bLR6ZpUJS5UoQRbVU",
+            authDomain: "roommate-match-making.firebaseapp.com",
+            databaseURL:
+                "https://roommate-match-making-default-rtdb.firebaseio.com",
+            projectId: "roommate-match-making",
+            storageBucket: "roommate-match-making.appspot.com",
+            messagingSenderId: "1086011648278",
+            appId: "1:1086011648278:web:a37275f476af35c2fc8837",
+            measurementId: "G-03Y8JYTZS5",
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase();
+
+        // Function to handle logout
+        document.getElementById('logout-link').addEventListener('click', function () {
+            const confirmation = window.confirm("Are you sure you want to logout?");
+            if (confirmation) {
+                auth.signOut().then(function () {
+                    // Sign-out successful.
+                    const currentUser = auth.currentUser;
+                    //console.log('User logged out:', currentUser ? currentUser.email : 'No user');
+                    window.location.href = "launcherone.html"; // Redirect to logout page
+                }).catch(function (error) {
+                    // An error happened.
+                    console.error('Logout Error:', error);
+                });
+            }
+        });
+
+        // Function to handle account deletion
+        document.getElementById('delete-account-link').addEventListener('click', function () {
+            const confirmation = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+            if (confirmation) {
+                var user = auth.currentUser;
+                user.delete().then(function () {
+                    // Account deleted successfully.
+                    //console.log('Account deleted:', user.email);
+                    window.location.href = "launcherone.html"; // Redirect to account deletion page
+                }).catch(function (error) {
+                    // An error happened.
+                    console.error('Delete Account Error:', error);
+                });
+            }
+        });
+
+        // Listen for changes in authentication state
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in, fetch user data from Firebase Authentication
+                const username = user.email;
+
+                // Set the username to the profile HTML element if it exists
+                console.log('Logged in user: ' + username);
+            } else {
+                // No user is signed in, handle this case if necessary
+                console.log('No user signed in');
+            }
+        });
+    </script>
+
+
+    <header class="head">
+        <h1><img src="rocket_launch_FILL0_wght400_GRAD0_opsz48.png" alt="">LAUNCHER-ONE</h1>
     </header>
 
-    <section class="section1">
-        <div class="settings">
-            <a href="launcherone_profile.html">
-                <img src="profileIcon.png">
-                <span>Account Center</span>
-            </a>
+    <section class="section11" id="section1">
+        <header class="Headd">
+            <h2>Settings</h2>
+        </header>
+        <div class="settings" id="faq-link" onclick="toggleFAQ()">
+            <span class="faq-button">FAQ</span>
+            <!-- FAQ Section -->
+            <div class="faq-section" id="faq-section" style="display: none;">
+                <div class="faq-item">
+                    <h3>How does the roommate matching process work?</h3>
+                    <p>Our platform utilizes simple algorithms to match users based on their roommate preferences,
+                        preferred locations, and other criteria provided in their profiles. Once you
+                        create an account and fill out your profile, our system generates personalized match suggestions
+                        for you.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I specify specific preferences for my roommate?</h3>
+                    <p>Absolutely! You can specify various preferences such as budget, pet-friendly,
+                        preferred accomodation type, similar interests, and more. Our goal is to find you a compatible
+                        roommate who shares your lifestyle preferences and habits.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is my personal information secure?</h3>
+                    <p>Yes, protecting your privacy and personal information is our top priority. We employ
+                        industry-standard security measures, including encryption and secure storage practices, to
+                        safeguard your data. Rest assured that we do not share your information with third parties
+                        without your explicit consent.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I delete my account?</h3>
+                    <p>If you wish to delete your account permanently, you cna do so through the 'Delete Account' button
+                        down below.Please note that thisaction is irreversible and will remove all your data from our
+                        system.</p>
+                </div>
+            </div>
         </div>
-        <div class="settings">
-            <a href="launcherone_Notifications.html">
-                <img src="notificationsIcon.png" alt="Icon2">
-                <span>Notifications</span>
-            </a>
-        </div>
-        <div class="settings">
-            <a href="launcherone_AccountPrivacy.html">
-                <img src="privacy.png" alt="Icon3">
-                <span>Account Privacy</span>
-            </a>
-        </div>
-        <div class="settings">
-            <a href="launcherone_Logout.html">
-                <!-- <img src="icon4.png" alt="Icon4"> -->
+        <div class="settings" id="logout-link">
+            <a>
                 <span>Logout</span>
             </a>
         </div>
-        <div class="settings1">
-            <a href="launcherone_DeleteAccount.html">
-                <!-- <img src="icon5.png" alt="Icon5"> -->
+        <div class="settings" id="delete-account-link">
+            <a>
                 <span>Delete Account</span>
             </a>
         </div>
     </section>
+
 
 </body>
 
