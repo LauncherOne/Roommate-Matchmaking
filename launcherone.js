@@ -1,3 +1,5 @@
+/* Comp 3450 Authors: Oleanna San Antonio, Nilam Rai, Adebayo Jesutofunmi Juliet*/
+
 /* Profile JS */
 function editProfile() {
     var profileInputs = document.querySelectorAll('.profile-input');
