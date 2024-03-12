@@ -40,6 +40,8 @@
         const auth = getAuth(app);
         const database = getDatabase();
 
+        var name;
+
         // Listen for changes in authentication state
         auth.onAuthStateChanged((user) => {
             if (user) {
@@ -71,6 +73,7 @@
 
                                         // Inject other user's data into profile elements
                                         document.getElementById('profile-name').innerHTML = otherUser.name;
+                                        name = otherUser.name;
                                         document.getElementById('profile-bio').innerHTML = otherUser.bio;
                                         document.getElementById('profile-roommate-preference').innerHTML = "Roommate preference: " + otherUser.roommatePreference;
                                         document.getElementById('profile-location').innerHTML = "Preferred location: " + otherUser.location;
@@ -103,6 +106,18 @@
         setTimeout(() => {
             matchHeaderWrapper.style.display = 'none';
         }, 2000);
+
+
+document.getElementById('acceptButton').addEventListener('click', function(){
+
+        localStorage.setItem('name', name);
+
+            window.location.href = "launcherone_chat.html";
+    
+});
+        
+
+
     </script>
 
     <header class="head">
@@ -125,7 +140,7 @@
                 </div>
             </div>
             <div class="action-buttons">
-                <button class="accept-button">Accept</button>
+                <button id = "acceptButton" class="accept-button">Accept</button>
                 <button class="delete-button">Delete</button>
             </div>
         </div>
