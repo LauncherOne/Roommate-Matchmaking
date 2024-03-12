@@ -742,11 +742,13 @@ header.head1 h1 {
     overflow: hidden;
     text-align: center;
     margin-top: 7%;
-    transition: width 0.3s ease-in-out; /* Added transition */
+    transition: width 0.3s ease-in-out;
+    /* Added transition */
 }
 
 .section11.expanded {
-    width: 60%; /* Increase width when expanded */
+    width: 60%;
+    /* Increase width when expanded */
 }
 
 .settings {
@@ -761,7 +763,8 @@ header.head1 h1 {
 }
 
 .settings.expanded {
-    width: 700px; /* Increase width when expanded */
+    width: 700px;
+    /* Increase width when expanded */
 }
 
 .settings:hover {
@@ -805,12 +808,15 @@ header.head1 h1 {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    display: none; /* Initially hidden */
-    transition: width 0.3s ease-in-out; /* Added transition */
+    display: none;
+    /* Initially hidden */
+    transition: width 0.3s ease-in-out;
+    /* Added transition */
 }
 
 .faq-section.expanded {
-    display: block; /* Show when expanded */
+    display: block;
+    /* Show when expanded */
 }
 
 .faq-item {
@@ -1036,6 +1042,44 @@ header.head1 h1 {
 
 #message-form button:hover {
     background-color: #eab9e5;
+}
+
+.chat-list-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.chat-list-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-list-profile h2 {
+    margin: 0;
+}
+
+#chat-title-and-image {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#chat-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#chat-title {
+    margin: 0;
+
 }
 
 /* Matches Page */
