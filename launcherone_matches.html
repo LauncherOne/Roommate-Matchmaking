@@ -48,6 +48,7 @@
       const database = getDatabase();
 
       var name;
+      var profile;
 
       // Listen for changes in authentication state
       auth.onAuthStateChanged((user) => {
@@ -99,6 +100,7 @@
                             "Preferred location: " + otherUser.location;
                           document.getElementById("profile-image").src =
                             otherUser.profileImageUrl;
+                          profile = otherUser.profileImageUrl;
                         }
                       });
                     } else {
@@ -133,21 +135,16 @@
         matchHeaderWrapper.style.display = "none";
       }, 2000);
 
-      document
-        .getElementById("acceptButton")
-        .addEventListener("click", function () {
-          localStorage.setItem("name", name);
-
-          window.location.href = "launcherone_chat.html";
-        });
-
       // Add event listener to accept button
       document
-        .querySelector(".accept-button")
+        .getElementById("acceptButton")
         .addEventListener("click", function () {
           // Code to add the other user to the chat list and redirect to chat page
           //console.log("Accepted");
           // Redirect to chat page
+
+          localStorage.setItem("name", name); //stores the name of the person taken from this page and sends it to the next page
+          localStorage.setItem("profilepic", profile);
           window.location.href = "launcherone_chat.html";
         });
 
