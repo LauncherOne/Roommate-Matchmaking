@@ -117,8 +117,13 @@
         </section>
       </main>
 
+      <script>
+        module = {};
+      </script>
+
       <script type="module">
         // Import the functions you need from the SDKs you need
+        
 
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
@@ -132,8 +137,11 @@
           ref,
           set,
           push,
+          remove,
           child,
+          onChildAdded,
           onValue,
+          onChildRemoved,
         } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
         // TODO: Add SDKs for Firebase products that you want to use
@@ -171,11 +179,16 @@
 
         // Get the matched user's ID (you need to implement logic for this)
         var matchedUserId = "";
+        var messages = document.getElementById('messages');
+        var sender = "";
+        
+        
 
         auth.onAuthStateChanged((user) => {
           if (user) {
             // Create a reference to the user's profile in the database
             const userRef = ref(database, "users/" + user.uid);
+
 
             onValue(
               userRef,
@@ -204,6 +217,7 @@
                           ) {
                             //console.log("Found a match:", userId);
                             matchedUserId = userId;
+                            
                           }
                         });
                       } else {
@@ -226,18 +240,20 @@
             console.log("No user signed in");
           }
         });
-
+        
+        
         function sendMessage() {
           const user = auth.currentUser;
           if (user) {
             const input = document.getElementById("message-input").value;
             const name = user.displayName;
             const chatRoomRef = ref(database, "chatRoom"); // Use ref() instead of database.ref()
+            //var timestamp = new Date().getTime();
 
             // Push the message to the chat room under a unique key
             const newMessageRef = push(chatRoomRef);
-            set(newMessageRef, {
-              sender: name,
+            set(newMessageRef , {
+              sender: user.uid,
               message: input,
               receiver: matchedUserId,
             }).then(() => {
@@ -249,6 +265,27 @@
             console.log("No user signed in");
           }
         }
+
+        //to receive messages
+        onChildAdded(ref(database,"chatRoom"),(data) =>{
+          const user = auth.currentUser;
+
+          sender = user.uid;
+
+          if(data.val().sender == sender){
+            messages.innerHTML += "<div style=justify-content:end class=outer id= "+data.keys+"><div id=inner class=me>you:"+data.val().message+"</div></div>"
+          }
+          
+           else if(data.val().receiver == matchedUserId){
+            messages.innerHTML += "<div class=outer id= "+data.keys+"><div id=inner class=otherUser>"/*+data.val().displayName+":"*/+data.val().message+"</div></div>"
+          }
+          
+
+      })
+
+
+      
+          
       </script>
     </body>
 

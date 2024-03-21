@@ -1243,3 +1243,32 @@ header.head1 h1 {
 .delete-button:hover {
     opacity: 0.8;
 }
+
+/*chat page*/
+.outer{
+    
+    width:100%;
+    margin-top:10px;
+    display:flex;
+}
+
+#inner{
+    padding:10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.me{
+    background: #eab9e5;
+    color:black;
+
+}
+
+#messages{
+    box-sizing: border-box;
+}
+
+.otherUser{
+    background: #878fd7;
+    color:white;
+}
