@@ -173,6 +173,9 @@
         document.getElementById("chat-image").innerHTML =
           localStorage.getItem("profilepic");
 
+        document.getElementById("chat-profile-name").innerHTML =
+          localStorage.getItem("name");
+
         document
           .getElementById("sendButton")
           .addEventListener("click", sendMessage);
@@ -217,6 +220,7 @@
                           ) {
                             //console.log("Found a match:", userId);
                             matchedUserId = userId;
+                            //console.log(matchedUserId);
                             
                           }
                         });
@@ -258,25 +262,43 @@
               receiver: matchedUserId,
             }).then(() => {
               console.log("Message sent successfully");
+
             }).catch((error) => {
               console.error("Error sending message:", error);
             });
           } else {
             console.log("No user signed in");
           }
+          
+          
         }
+
+        
 
         //to receive messages
         onChildAdded(ref(database,"chatRoom"),(data) =>{
           const user = auth.currentUser;
+          const allUsers = data.val();
 
           sender = user.uid;
 
-          if(data.val().sender == sender){
-            messages.innerHTML += "<div style=justify-content:end class=outer id= "+data.keys+"><div id=inner class=me>you:"+data.val().message+"</div></div>"
-          }
+          var otherUser = data.val().receiver;
+
+          var send2 = data.val().sender;
+
+          console.log(otherUser);
+
+          console.log(data.val().message);
+
           
-           else if(data.val().receiver == matchedUserId){
+          console.log(matchedUserId);
+          
+
+          if(data.val().sender == sender){
+            console.log(sender);
+            messages.innerHTML += "<div style=justify-content:end class=outer id= "+data.keys+"><div id=inner class=me>You:"+data.val().message+"</div></div>"
+          }
+          else if(data.val().receiver == otherUser){
             messages.innerHTML += "<div class=outer id= "+data.keys+"><div id=inner class=otherUser>"/*+data.val().displayName+":"*/+data.val().message+"</div></div>"
           }
           
