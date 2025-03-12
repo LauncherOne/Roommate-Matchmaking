@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "ROOMMATE-MATCHMAKING",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/launcherone.html"
+      }
+    ]
+  }
+}
